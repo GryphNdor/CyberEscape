@@ -1,0 +1,102 @@
+[gd_scene load_steps=18 format=3 uid="uid://b1prsnj01d756"]
+
+[ext_resource type="PackedScene" uid="uid://d0e1m85vkryn" path="res://scenes/player.tscn" id="1_e1ilf"]
+[ext_resource type="PackedScene" uid="uid://c0n7exk2ggt5m" path="res://assets/table_medium_long.gltf" id="2_w0ncn"]
+[ext_resource type="PackedScene" uid="uid://pl8sfekx1hpu" path="res://assets/rug_rectangle_stripes_B.gltf" id="3_extmw"]
+[ext_resource type="PackedScene" uid="uid://dhg7tf5egd54a" path="res://assets/bed_single_B.gltf" id="4_e0oh2"]
+[ext_resource type="PackedScene" uid="uid://ccqc2vnu47vto" path="res://assets/cabinet_medium.gltf" id="5_66mvr"]
+[ext_resource type="PackedScene" uid="uid://cs2okkrvw6bcx" path="res://assets/table_low.gltf" id="6_vh2cp"]
+[ext_resource type="PackedScene" uid="uid://bpj0mt4h5itcj" path="res://assets/chair_A_wood.gltf" id="7_wt7xt"]
+[ext_resource type="PackedScene" uid="uid://bjlekpkcvsnel" path="res://assets/lamp_table.gltf" id="8_h5h1n"]
+[ext_resource type="PackedScene" uid="uid://bxlfhu7jep5bc" path="res://assets/lamp_standing.gltf" id="9_i3bgv"]
+[ext_resource type="PackedScene" uid="uid://m63e665v11rw" path="res://assets/pictureframe_large_A.gltf" id="10_54pup"]
+[ext_resource type="PackedScene" uid="uid://bwgbbcyouxvxv" path="res://assets/pictureframe_large_B.gltf" id="11_3x4cn"]
+[ext_resource type="PackedScene" uid="uid://4c3iu11i0o3e" path="res://assets/shelf_A_big.gltf" id="12_637cu"]
+[ext_resource type="PackedScene" uid="uid://cwes6pxs2ajox" path="res://assets/book_set.gltf" id="13_q1rf6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4rjyt"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_14jo5"]
+sky_material = SubResource("ProceduralSkyMaterial_4rjyt")
+
+[sub_resource type="Environment" id="Environment_jk407"]
+background_mode = 2
+sky = SubResource("Sky_14jo5")
+tonemap_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qagst"]
+
+[node name="World" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jk407")
+
+[node name="Floor" type="CSGMesh3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+use_collision = true
+mesh = SubResource("PlaneMesh_qagst")
+
+[node name="Wall" type="CSGMesh3D" parent="."]
+transform = Transform3D(-2.18557e-07, -5, 0, 5, -2.18557e-07, 0, 0, 0, 5, 5, 0, 0)
+use_collision = true
+mesh = SubResource("PlaneMesh_qagst")
+
+[node name="Wall2" type="CSGMesh3D" parent="."]
+transform = Transform3D(2.18557e-07, 5, -7.54979e-07, 5, -2.18557e-07, 1.69407e-21, -3.30012e-14, -7.54979e-07, -5, -5, 0, 0)
+use_collision = true
+mesh = SubResource("PlaneMesh_qagst")
+
+[node name="Wall3" type="CSGMesh3D" parent="."]
+transform = Transform3D(9.55343e-15, 2.18557e-07, -5, 5, -2.18557e-07, 2.11758e-22, -2.18557e-07, -5, -2.18557e-07, 0, 0, 5)
+use_collision = true
+mesh = SubResource("PlaneMesh_qagst")
+
+[node name="Wall4" type="CSGMesh3D" parent="."]
+transform = Transform3D(9.55343e-15, 2.18557e-07, 5, 5, -2.18557e-07, 8.47033e-22, 2.18557e-07, 5, -2.18557e-07, 0, 0, -5)
+use_collision = true
+mesh = SubResource("PlaneMesh_qagst")
+
+[node name="Player" parent="." instance=ExtResource("1_e1ilf")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.2913, 0)
+
+[node name="table_medium_long2" parent="." instance=ExtResource("2_w0ncn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035097, 0, 3.73032)
+
+[node name="rug_rectangle_stripes_B2" parent="." instance=ExtResource("3_extmw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00921988, 0, 0.00380301)
+
+[node name="bed_single_B2" parent="." instance=ExtResource("4_e0oh2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.90635, 0, -3.23193)
+
+[node name="cabinet_medium2" parent="." instance=ExtResource("5_66mvr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9218, 0, -4.42343)
+
+[node name="table_low2" parent="." instance=ExtResource("6_vh2cp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.68314, 0, -3.92595)
+
+[node name="chair_A_wood2" parent="." instance=ExtResource("7_wt7xt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00829124, 0, 2.11014)
+
+[node name="lamp_table2" parent="." instance=ExtResource("8_h5h1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65894, 0.454943, -4.08397)
+
+[node name="lamp_standing2" parent="." instance=ExtResource("9_i3bgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25077, 5.96046e-07, 3.9988)
+
+[node name="pictureframe_large_A2" parent="." instance=ExtResource("10_54pup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0974938, 2.64902, -4.99681)
+
+[node name="pictureframe_large_B2" parent="." instance=ExtResource("11_3x4cn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37722, 2.65998, -5)
+
+[node name="shelf_A_big2" parent="." instance=ExtResource("12_637cu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.99097, 2.1541, -0.170872)
+
+[node name="book_set2" parent="." instance=ExtResource("13_q1rf6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.79659, 2.4877, 0.312937)
