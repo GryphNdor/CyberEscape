@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 var speed
 const WALK_SPEED = 3.0
@@ -39,9 +40,9 @@ func _physics_process(delta):
     
     speed = WALK_SPEED
 
-    # Handle Jump.
-    if Input.is_action_just_pressed("jump") and is_on_floor():
-        velocity.y = JUMP_VELOCITY
+    # Disabled but handles jump
+    # if Input.is_action_just_pressed("jump") and is_on_floor():
+    #     velocity.y = JUMP_VELOCITY
 
     if Input.is_action_pressed("ui_cancel"):
         get_tree().quit()
@@ -60,10 +61,6 @@ func _physics_process(delta):
         velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
         velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
 
-    # Head bob
-    t_bob += delta * velocity.length() * float(is_on_floor())
-    camera.transform.origin = _headbob(t_bob)
-
     # FOV
     var velocity_clamped = clamp(velocity.length(), 0.5, speed * 2)
     var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
@@ -71,9 +68,8 @@ func _physics_process(delta):
 
     move_and_slide()
 
-
-func _headbob(time) -> Vector3:
-    var pos = Vector3.ZERO
-    pos.y = sin(time * BOB_FREQ) * BOB_AMP
-    pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
-    return pos
+    for i in get_slide_collision_count():
+        var c = get_slide_collision(i)
+        # check for collidable objects and give them a push in the opposite direction
+        if c.get_collider() is RigidBody3D:
+            c.get_collider().apply_central_impulse(-c.get_normal())

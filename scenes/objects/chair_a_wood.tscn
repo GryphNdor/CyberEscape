@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4jjn5j7rfd1m"]
+
+[ext_resource type="ArrayMesh" uid="uid://dyts70pvaib5" path="res://resources/chair.res" id="1_r6gn2"]
+
+[node name="chair_A_wood" type="Node3D"]
+
+[node name="chair_A_wood" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_r6gn2")
+skeleton = NodePath("")

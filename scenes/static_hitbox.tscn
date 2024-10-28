@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://deslei4n8o7iy"]
+
+[ext_resource type="Script" path="res://scripts/static_entity.gd" id="1_wt5di"]
+
+[node name="StaticHitbox" type="Node3D"]
+script = ExtResource("1_wt5di")
