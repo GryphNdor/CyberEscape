@@ -1,4 +1,5 @@
 extends CharacterBody3D
+
 class_name Player
 
 var speed
@@ -20,10 +21,12 @@ var gravity = 9.8
 
 @onready var head = %Pivot
 @onready var camera = %Pivot/Camera3D
+@onready var ray = %Pivot/Camera3D/RayCast3D
 
+var can_interact = false
 
-func _ready():
-    Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+# func _ready():
+#     Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 func _unhandled_input(event):
@@ -32,17 +35,36 @@ func _unhandled_input(event):
         camera.rotate_x(-event.relative.y * SENSITIVITY)
         camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 
+func in_range(collision_body) -> void:
+    if (collision_body is Computer):
+        get_tree().call_group("interaction", "player_in_range")
+        can_interact = true
+        pass
+
 
 func _physics_process(delta):
     # Add the gravity.
     if not is_on_floor():
         velocity.y -= gravity * delta
     
+    if (ray.is_colliding()):
+        var c = ray.get_collider()
+        in_range(c)
+    else:
+        can_interact = false
+        get_tree().call_group("interaction", "player_out_range")
+
+    
     speed = WALK_SPEED
 
     # Disabled but handles jump
     # if Input.is_action_just_pressed("jump") and is_on_floor():
     #     velocity.y = JUMP_VELOCITY
+
+    if Input.is_action_just_pressed("interact") and can_interact:
+        print("pog")
+        # Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+        # Engine.time_scale = 0
 
     if Input.is_action_pressed("ui_cancel"):
         get_tree().quit()

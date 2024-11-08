@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8726dbwkv0lm"]
+
+[ext_resource type="ArrayMesh" uid="uid://6q7322h8e10v" path="res://scenes/objects/book.tres" id="1_fq4ew"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7accj"]
+
+[node name="red_book" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51303, 0, 0)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.249391, 0.000963002, 0.0158635)
+mesh = ExtResource("1_fq4ew")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="CSGMesh3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36056, 0, 0)
+operation = 2
+mesh = SubResource("BoxMesh_7accj")

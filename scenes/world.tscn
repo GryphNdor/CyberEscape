@@ -1,11 +1,11 @@
-[gd_scene load_steps=28 format=4 uid="uid://b1prsnj01d756"]
+[gd_scene load_steps=37 format=4 uid="uid://b1prsnj01d756"]
 
 [ext_resource type="PackedScene" uid="uid://d0e1m85vkryn" path="res://scenes/player.tscn" id="1_e1ilf"]
+[ext_resource type="Script" path="res://scripts/interaction_label.gd" id="2_ravap"]
 [ext_resource type="PackedScene" uid="uid://c0n7exk2ggt5m" path="res://assets/table_medium_long.gltf" id="2_w0ncn"]
 [ext_resource type="Texture2D" uid="uid://bo0sy3jl8ajh8" path="res://assets/furniturebits_texture.png" id="3_5v5wy"]
 [ext_resource type="PackedScene" uid="uid://bwc3byku0a8yh" path="res://scenes/computer.tscn" id="3_bmqxs"]
 [ext_resource type="PackedScene" uid="uid://pl8sfekx1hpu" path="res://assets/rug_rectangle_stripes_B.gltf" id="3_extmw"]
-[ext_resource type="Script" path="res://scripts/computer.gd" id="4_7u6fq"]
 [ext_resource type="PackedScene" uid="uid://cew0n3gay5ups" path="res://assets/cabinet_medium_decorated.gltf" id="5_66mvr"]
 [ext_resource type="PackedScene" uid="uid://cmwyatukguyqh" path="res://scenes/objects/lamp_table_2.tscn" id="5_hxch0"]
 [ext_resource type="PackedScene" uid="uid://cs2okkrvw6bcx" path="res://assets/table_low.gltf" id="6_vh2cp"]
@@ -15,8 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://bwgbbcyouxvxv" path="res://assets/pictureframe_large_B.gltf" id="11_3x4cn"]
 [ext_resource type="PackedScene" uid="uid://4c3iu11i0o3e" path="res://assets/shelf_A_big.gltf" id="12_637cu"]
 [ext_resource type="PackedScene" uid="uid://cwes6pxs2ajox" path="res://assets/book_set.gltf" id="13_q1rf6"]
+[ext_resource type="Script" path="res://scripts/door.gd" id="14_pgtgt"]
 [ext_resource type="PackedScene" uid="uid://deslei4n8o7iy" path="res://scenes/static_hitbox.tscn" id="14_ver2p"]
 [ext_resource type="PackedScene" uid="uid://d4jjn5j7rfd1m" path="res://scenes/objects/chair_a_wood.tscn" id="15_k4gva"]
+[ext_resource type="PackedScene" uid="uid://c6ci85rcd68pn" path="res://scenes/objects/blue_book.tscn" id="19_bs8p0"]
+[ext_resource type="PackedScene" uid="uid://c8726dbwkv0lm" path="res://scenes/objects/red_book.tscn" id="20_y2seq"]
+[ext_resource type="PackedScene" uid="uid://oxccpdujcvy2" path="res://assets/book_single.gltf" id="21_6j4vo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4rjyt"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -30,8 +34,22 @@ background_mode = 2
 sky = SubResource("Sky_14jo5")
 tonemap_mode = 2
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s11mv"]
+bg_color = Color(1.34766e-06, 0.651326, 0.887248, 1)
+
+[sub_resource type="Theme" id="Theme_qxhsx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qe6mu"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2nv5t"]
+bg_color = Color(8.27849e-06, 0.70505, 0.532758, 1)
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_axt4f"]
 viewport_path = NodePath("TrainingRoom/Sprite3D/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7w8in"]
+viewport_path = NodePath("TrainingRoom/Sprite3D2/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8g5nu"]
 resource_name = "furniture_texture"
@@ -88,10 +106,12 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jk407")
 
-[node name="Player" parent="." instance=ExtResource("1_e1ilf")]
+[node name="Player" parent="." groups=["interaction"] instance=ExtResource("1_e1ilf")]
+unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.2913, 0)
 
 [node name="HUD" type="Control" parent="."]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -100,7 +120,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="InteractionLabel" type="Label" parent="HUD"]
+[node name="InteractionLabel" type="Label" parent="HUD" groups=["interaction"]]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -117,6 +138,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 36
 text = "Press (E) to Interact"
+script = ExtResource("2_ravap")
 
 [node name="WorldLabel" type="RichTextLabel" parent="HUD"]
 layout_mode = 0
@@ -125,14 +147,101 @@ offset_bottom = 90.0
 theme_override_font_sizes/normal_font_size = 48
 text = "Test world 1"
 
-[node name="Computer" parent="." instance=ExtResource("3_bmqxs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43739, 3.49329)
-script = ExtResource("4_7u6fq")
+[node name="Screen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 1, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="Screen/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Screen/ColorRect/CenterContainer"]
+custom_minimum_size = Vector2(900, 375)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Screen/ColorRect/CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen/ColorRect/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Screen/ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 64
+text = "Master Door Computer"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Screen/ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Screen/ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+placeholder_text = "Password"
+max_length = 4
+expand_to_text_length = true
+
+[node name="Button" type="Button" parent="Screen/ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_s11mv")
+text = "Submit"
+
+[node name="Button" type="Button" parent="Screen/ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = SubResource("Theme_qxhsx")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_qe6mu")
+text = "Leave"
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Screen/ColorRect/CenterContainer"]
+custom_minimum_size = Vector2(700, 500)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Screen/ColorRect/CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_2nv5t")
+text = "Open the Door"
+
+[node name="Button2" type="Button" parent="Screen/ColorRect/CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = SubResource("Theme_qxhsx")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_qe6mu")
+text = "Leave"
 
 [node name="TrainingRoom" type="Node3D" parent="."]
 
 [node name="Sprite3D" type="Sprite3D" parent="TrainingRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.27237, 2.72368, -4.84861)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36302, 2.72368, -4.84861)
 texture_filter = 1
 texture = SubResource("ViewportTexture_axt4f")
 
@@ -144,7 +253,22 @@ size = Vector2i(162, 72)
 offset_right = 143.0
 offset_bottom = 88.0
 theme_override_font_sizes/font_size = 64
-text = "4 7 2"
+text = "R Y B"
+
+[node name="Sprite3D2" type="Sprite3D" parent="TrainingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.031257, 2.72368, -4.81524)
+texture_filter = 1
+texture = SubResource("ViewportTexture_7w8in")
+
+[node name="SubViewport" type="SubViewport" parent="TrainingRoom/Sprite3D2"]
+transparent_bg = true
+size = Vector2i(64, 72)
+
+[node name="Label" type="Label" parent="TrainingRoom/Sprite3D2/SubViewport"]
+offset_right = 143.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 64
+text = "R"
 
 [node name="rug_rectangle_stripes_B2" parent="TrainingRoom" instance=ExtResource("3_extmw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1141, -0.0893455, 0.00380301)
@@ -221,6 +345,7 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.99962, 0.203112, 0.00
 material_override = SubResource("StandardMaterial3D_px37c")
 use_collision = true
 size = Vector3(0.20166, 3.03113, 2.04575)
+script = ExtResource("14_pgtgt")
 
 [node name="cabinet_medium2" parent="TrainingRoom" instance=ExtResource("5_66mvr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9218, 0, -4.42343)
@@ -229,7 +354,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9218, 0, -4.42343)
 item = NodePath("..")
 
 [node name="table_medium_long2" parent="TrainingRoom" instance=ExtResource("2_w0ncn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.76589)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0166645, -0.0203521, 3.76589)
 
 [node name="StaticHitbox" parent="TrainingRoom/table_medium_long2" node_paths=PackedStringArray("item") instance=ExtResource("14_ver2p")]
 item = NodePath("..")
@@ -238,3 +363,27 @@ item = NodePath("..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0477302, 0, 1.66317)
 item = ExtResource("15_k4gva")
 weight = 4
+
+[node name="blue_book" parent="TrainingRoom" instance=ExtResource("19_bs8p0")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 2.62992, 0.596429, -3.91357)
+
+[node name="red_book" parent="TrainingRoom" instance=ExtResource("20_y2seq")]
+transform = Transform3D(-0.0360224, 0.793096, -0.60803, -0.998444, -0.00263945, 0.0557094, 0.0425781, 0.609091, 0.791957, -1.08749, 0.587165, 4.15387)
+
+[node name="blue_book2" parent="TrainingRoom" instance=ExtResource("19_bs8p0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.79771, 2.48036, -0.219095)
+
+[node name="book_stack" type="Node3D" parent="TrainingRoom"]
+transform = Transform3D(-3.28812e-10, -0.00752235, -0.999972, 1, -4.37114e-08, 0, -4.37102e-08, -0.999972, 0.00752235, 1.67974, 0.355362, 3.08342)
+
+[node name="book_single2" parent="TrainingRoom/book_stack" instance=ExtResource("21_6j4vo")]
+transform = Transform3D(1, 3.55271e-15, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="book_single3" parent="TrainingRoom/book_stack" instance=ExtResource("21_6j4vo")]
+transform = Transform3D(1, 3.55271e-15, 0, 0, 1, 0, 0, 0, 1, 0.246866, 0.00506735, 0)
+
+[node name="book_single4" parent="TrainingRoom/book_stack" instance=ExtResource("21_6j4vo")]
+transform = Transform3D(1, 3.55271e-15, 0, 0, 1, 0, 0, 0, 1, -0.250841, 0.0126395, 1.19209e-07)
+
+[node name="Computer" parent="TrainingRoom" groups=["interaction"] instance=ExtResource("3_bmqxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43739, 3.49329)
