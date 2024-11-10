@@ -1,22 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://dd44jb3a8aem0"]
+[gd_scene load_steps=4 format=3 uid="uid://bny1u1cp44u8o"]
 
-[ext_resource type="Script" path="res://scenes/mainmenu/main_menu.gd" id="1_e1pir"]
-[ext_resource type="Texture2D" uid="uid://cxco8o71i2c0r" path="res://assets/Backgrounds/Open_Door_Background.png" id="1_txwdg"]
+[ext_resource type="Texture2D" uid="uid://c305axia7ks7r" path="res://assets/Backgrounds/White_Background.png" id="1_h16u6"]
 
-[sub_resource type="SystemFont" id="SystemFont_pd84o"]
+[sub_resource type="SystemFont" id="SystemFont_34b6g"]
 font_names = PackedStringArray("Agency FB")
 
-[sub_resource type="SystemFont" id="SystemFont_mvr0j"]
+[sub_resource type="SystemFont" id="SystemFont_yc4qx"]
 font_names = PackedStringArray("Agency FB")
 
-[node name="Main_Menu" type="Control"]
+[node name="level_select" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_e1pir")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -25,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_txwdg")
+texture = ExtResource("1_h16u6")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -54,9 +52,9 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 8
 theme_override_constants/shadow_offset_y = 12
 theme_override_constants/outline_size = 24
-theme_override_fonts/font = SubResource("SystemFont_pd84o")
+theme_override_fonts/font = SubResource("SystemFont_34b6g")
 theme_override_font_sizes/font_size = 120
-text = "CyberEscape"
+text = "Select Level"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -87,7 +85,7 @@ layout_mode = 2
 [node name="Start_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 133)
 layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_mvr0j")
+theme_override_fonts/font = SubResource("SystemFont_yc4qx")
 theme_override_font_sizes/font_size = 120
 button_mask = 5
 text = "START GAME"
@@ -95,6 +93,6 @@ text = "START GAME"
 [node name="Exit_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 133)
 layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_mvr0j")
+theme_override_fonts/font = SubResource("SystemFont_yc4qx")
 theme_override_font_sizes/font_size = 120
 text = "EXIT GAME"

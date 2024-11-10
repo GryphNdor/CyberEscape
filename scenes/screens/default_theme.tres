@@ -1,0 +1,60 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://k28fqq68cyrt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04cbs"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+bg_color = Color(0.577295, 0.312413, 0.698598, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+shadow_color = Color(0.341176, 0.121569, 0.117647, 0.00392157)
+shadow_size = 6
+shadow_offset = Vector2(0, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1slx"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+bg_color = Color(0.576471, 0.313726, 0.698039, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+shadow_color = Color(0.341176, 0.121569, 0.117647, 0.00392157)
+shadow_size = 3
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lldjr"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+bg_color = Color(0.379204, 0.841546, 0.884437, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+shadow_color = Color(0.341176, 0.121569, 0.117647, 0.00392157)
+shadow_size = 3
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="SystemFont" id="SystemFont_8ngsf"]
+font_names = PackedStringArray("Agency FB")
+
+[resource]
+default_font = SubResource("SystemFont_8ngsf")
+Button/colors/font_color = Color(0.14902, 0.14902, 0.14902, 1)
+Button/colors/font_focus_color = Color(0.14902, 0.14902, 0.14902, 1)
+Button/colors/font_hover_color = Color(0.14902, 0.14902, 0.14902, 1)
+Button/font_sizes/font_size = 60
+Button/styles/hover = SubResource("StyleBoxFlat_04cbs")
+Button/styles/normal = SubResource("StyleBoxFlat_j1slx")
+Button/styles/pressed = SubResource("StyleBoxFlat_lldjr")
+Label/font_sizes/font_size = 46
