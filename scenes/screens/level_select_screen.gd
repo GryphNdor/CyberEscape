@@ -13,11 +13,17 @@ func get_levels(path) -> void:
 	if dir:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
+		var file_names = []
 		while file_name != "":
-			print(file_name)
-			create_level_btn('%s/%s' % [dir.get_current_dir(), file_name], file_name)
+			file_names.push_front(file_name)
 			file_name = dir.get_next()
 		dir.list_dir_end()
+
+		file_names.sort()
+		
+		for file in file_names:
+			print(file)
+			create_level_btn('%s/%s' % [dir.get_current_dir(), file], file)
 	else:
 		print("An error occurred when trying to access the path.")
 		

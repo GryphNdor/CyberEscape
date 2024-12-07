@@ -1,37 +1,50 @@
-[gd_scene load_steps=37 format=4 uid="uid://b1prsnj01d756"]
+[gd_scene load_steps=38 format=4 uid="uid://b1prsnj01d756"]
 
-[ext_resource type="PackedScene" uid="uid://d0e1m85vkryn" path="res://scenes/player.tscn" id="1_e1ilf"]
-[ext_resource type="Script" path="res://scripts/interaction_label.gd" id="2_ravap"]
-[ext_resource type="PackedScene" uid="uid://c0n7exk2ggt5m" path="res://assets/table_medium_long.gltf" id="2_w0ncn"]
-[ext_resource type="Texture2D" uid="uid://bo0sy3jl8ajh8" path="res://assets/furniturebits_texture.png" id="3_5v5wy"]
-[ext_resource type="PackedScene" uid="uid://bwc3byku0a8yh" path="res://scenes/computer.tscn" id="3_bmqxs"]
-[ext_resource type="PackedScene" uid="uid://pl8sfekx1hpu" path="res://assets/rug_rectangle_stripes_B.gltf" id="3_extmw"]
-[ext_resource type="PackedScene" uid="uid://cew0n3gay5ups" path="res://assets/cabinet_medium_decorated.gltf" id="5_66mvr"]
-[ext_resource type="PackedScene" uid="uid://cmwyatukguyqh" path="res://scenes/objects/lamp_table_2.tscn" id="5_hxch0"]
-[ext_resource type="PackedScene" uid="uid://cs2okkrvw6bcx" path="res://assets/table_low.gltf" id="6_vh2cp"]
-[ext_resource type="PackedScene" uid="uid://bpn2gqr3k6ycr" path="res://scenes/dynamic_hitbox.tscn" id="7_0b5cu"]
-[ext_resource type="PackedScene" uid="uid://bxlfhu7jep5bc" path="res://assets/lamp_standing.gltf" id="9_i3bgv"]
-[ext_resource type="PackedScene" uid="uid://m63e665v11rw" path="res://assets/pictureframe_large_A.gltf" id="10_54pup"]
-[ext_resource type="PackedScene" uid="uid://bwgbbcyouxvxv" path="res://assets/pictureframe_large_B.gltf" id="11_3x4cn"]
-[ext_resource type="PackedScene" uid="uid://4c3iu11i0o3e" path="res://assets/shelf_A_big.gltf" id="12_637cu"]
-[ext_resource type="PackedScene" uid="uid://cwes6pxs2ajox" path="res://assets/book_set.gltf" id="13_q1rf6"]
-[ext_resource type="Script" path="res://scripts/door.gd" id="14_pgtgt"]
-[ext_resource type="PackedScene" uid="uid://deslei4n8o7iy" path="res://scenes/static_hitbox.tscn" id="14_ver2p"]
-[ext_resource type="PackedScene" uid="uid://d4jjn5j7rfd1m" path="res://scenes/objects/chair_a_wood.tscn" id="15_k4gva"]
-[ext_resource type="PackedScene" uid="uid://c6ci85rcd68pn" path="res://scenes/objects/blue_book.tscn" id="19_bs8p0"]
-[ext_resource type="PackedScene" uid="uid://c8726dbwkv0lm" path="res://scenes/objects/red_book.tscn" id="20_y2seq"]
-[ext_resource type="PackedScene" uid="uid://oxccpdujcvy2" path="res://assets/book_single.gltf" id="21_6j4vo"]
+[ext_resource type="PackedScene" uid="uid://d0e1m85vkryn" path="res://scenes/player.tscn" id="1_yd3hp"]
+[ext_resource type="Script" path="res://scripts/interaction_label.gd" id="2_vvg87"]
+[ext_resource type="Script" path="res://scripts/screen.gd" id="3_1wpdf"]
+[ext_resource type="PackedScene" uid="uid://pl8sfekx1hpu" path="res://assets/rug_rectangle_stripes_B.gltf" id="3_t0qbv"]
+[ext_resource type="PackedScene" uid="uid://bxlfhu7jep5bc" path="res://assets/lamp_standing.gltf" id="4_cldrb"]
+[ext_resource type="PackedScene" uid="uid://m63e665v11rw" path="res://assets/pictureframe_large_A.gltf" id="5_yqxqm"]
+[ext_resource type="PackedScene" uid="uid://bwgbbcyouxvxv" path="res://assets/pictureframe_large_B.gltf" id="6_w5rgx"]
+[ext_resource type="PackedScene" uid="uid://4c3iu11i0o3e" path="res://assets/shelf_A_big.gltf" id="7_2wpp8"]
+[ext_resource type="PackedScene" uid="uid://cwes6pxs2ajox" path="res://assets/book_set.gltf" id="8_7s00m"]
+[ext_resource type="PackedScene" uid="uid://bpn2gqr3k6ycr" path="res://scenes/dynamic_hitbox.tscn" id="9_cxdfg"]
+[ext_resource type="PackedScene" uid="uid://cmwyatukguyqh" path="res://scenes/objects/lamp_table_2.tscn" id="10_si8eb"]
+[ext_resource type="PackedScene" uid="uid://cs2okkrvw6bcx" path="res://assets/table_low.gltf" id="11_3w7qy"]
+[ext_resource type="PackedScene" uid="uid://deslei4n8o7iy" path="res://scenes/static_hitbox.tscn" id="12_o16jc"]
+[ext_resource type="Texture2D" uid="uid://bo0sy3jl8ajh8" path="res://assets/furniturebits_texture.png" id="13_3nfeu"]
+[ext_resource type="Script" path="res://scripts/area_3d.gd" id="15_ps50p"]
+[ext_resource type="PackedScene" uid="uid://cew0n3gay5ups" path="res://assets/cabinet_medium_decorated.gltf" id="15_y3yk4"]
+[ext_resource type="PackedScene" uid="uid://c0n7exk2ggt5m" path="res://assets/table_medium_long.gltf" id="16_ufigk"]
+[ext_resource type="PackedScene" uid="uid://d4jjn5j7rfd1m" path="res://scenes/objects/chair_a_wood.tscn" id="17_6iiow"]
+[ext_resource type="PackedScene" uid="uid://c6ci85rcd68pn" path="res://scenes/objects/blue_book.tscn" id="18_egtbt"]
+[ext_resource type="PackedScene" uid="uid://c8726dbwkv0lm" path="res://scenes/objects/red_book.tscn" id="19_36rv1"]
+[ext_resource type="PackedScene" uid="uid://oxccpdujcvy2" path="res://assets/book_single.gltf" id="20_4g55m"]
+[ext_resource type="PackedScene" uid="uid://bwc3byku0a8yh" path="res://scenes/computer.tscn" id="21_fxlox"]
+
+[sub_resource type="GDScript" id="GDScript_sb70s"]
+script/source = "extends Node3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+    add_to_group(\"interaction\")
+
+func next_world():
+    get_tree().change_scene_to_file(\"res://scenes/levels/world1.tscn\")
+"
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4rjyt"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_14jo5"]
+[sub_resource type="Sky" id="Sky_10yap"]
 sky_material = SubResource("ProceduralSkyMaterial_4rjyt")
 
 [sub_resource type="Environment" id="Environment_jk407"]
 background_mode = 2
-sky = SubResource("Sky_14jo5")
+sky = SubResource("Sky_10yap")
 tonemap_mode = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s11mv"]
@@ -42,9 +55,6 @@ bg_color = Color(1.34766e-06, 0.651326, 0.887248, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qe6mu"]
 bg_color = Color(1, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2nv5t"]
-bg_color = Color(8.27849e-06, 0.70505, 0.532758, 1)
-
 [sub_resource type="ViewportTexture" id="ViewportTexture_axt4f"]
 viewport_path = NodePath("TrainingRoom/Sprite3D/SubViewport")
 
@@ -53,7 +63,7 @@ viewport_path = NodePath("TrainingRoom/Sprite3D2/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8g5nu"]
 resource_name = "furniture_texture"
-albedo_texture = ExtResource("3_5v5wy")
+albedo_texture = ExtResource("13_3nfeu")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_cj813"]
@@ -94,10 +104,11 @@ shadow_mesh = SubResource("ArrayMesh_cj813")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_71vvm"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_px37c"]
-albedo_color = Color(1, 0, 0, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_y0bod"]
+size = Vector3(1, 2.96338, 2.11432)
 
 [node name="World" type="Node3D"]
+script = SubResource("GDScript_sb70s")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -106,7 +117,7 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jk407")
 
-[node name="Player" parent="." groups=["interaction"] instance=ExtResource("1_e1ilf")]
+[node name="Player" parent="." groups=["interaction"] instance=ExtResource("1_yd3hp")]
 unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.2913, 0)
 
@@ -138,7 +149,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 36
 text = "Press (E) to Interact"
-script = ExtResource("2_ravap")
+script = ExtResource("2_vvg87")
 
 [node name="WorldLabel" type="RichTextLabel" parent="HUD"]
 layout_mode = 0
@@ -156,6 +167,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+script = ExtResource("3_1wpdf")
 
 [node name="ColorRect" type="ColorRect" parent="Screen"]
 layout_mode = 1
@@ -174,28 +186,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="Screen/ColorRect/CenterContainer"]
+[node name="PasswordContainer" type="PanelContainer" parent="Screen/ColorRect/CenterContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(900, 375)
 layout_mode = 2
 mouse_filter = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Screen/ColorRect/CenterContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Screen/ColorRect/CenterContainer/PasswordContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Screen/ColorRect/CenterContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen/ColorRect/CenterContainer/PasswordContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Screen/ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Screen/ColorRect/CenterContainer/PasswordContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 64
 text = "Master Door Computer"
 
-[node name="VBoxContainer" type="HBoxContainer" parent="Screen/ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="Screen/ColorRect/CenterContainer/PasswordContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="LineEdit" type="LineEdit" parent="Screen/ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="PasswordInput" type="LineEdit" parent="Screen/ColorRect/CenterContainer/PasswordContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -204,33 +218,35 @@ placeholder_text = "Password"
 max_length = 4
 expand_to_text_length = true
 
-[node name="Button" type="Button" parent="Screen/ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="SubmitButton" type="Button" parent="Screen/ColorRect/CenterContainer/PasswordContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_s11mv")
 text = "Submit"
 
-[node name="Button" type="Button" parent="Screen/ColorRect/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
+[node name="Error" type="Label" parent="Screen/ColorRect/CenterContainer/PasswordContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
-theme = SubResource("Theme_qxhsx")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_qe6mu")
-text = "Leave"
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Wrong Password"
+horizontal_alignment = 1
 
-[node name="HBoxContainer" type="VBoxContainer" parent="Screen/ColorRect/CenterContainer"]
-custom_minimum_size = Vector2(700, 500)
-layout_mode = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen/ColorRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -55.0
+grow_horizontal = 2
+grow_vertical = 0
 
-[node name="Button" type="Button" parent="Screen/ColorRect/CenterContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = SubResource("StyleBoxFlat_2nv5t")
-text = "Open the Door"
-
-[node name="Button2" type="Button" parent="Screen/ColorRect/CenterContainer/HBoxContainer"]
+[node name="LeaveButton" type="Button" parent="Screen/ColorRect/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = SubResource("Theme_qxhsx")
@@ -270,32 +286,32 @@ offset_bottom = 88.0
 theme_override_font_sizes/font_size = 64
 text = "R"
 
-[node name="rug_rectangle_stripes_B2" parent="TrainingRoom" instance=ExtResource("3_extmw")]
+[node name="rug_rectangle_stripes_B2" parent="TrainingRoom" instance=ExtResource("3_t0qbv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1141, -0.0893455, 0.00380301)
 
-[node name="lamp_standing2" parent="TrainingRoom" instance=ExtResource("9_i3bgv")]
+[node name="lamp_standing2" parent="TrainingRoom" instance=ExtResource("4_cldrb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25077, 5.96046e-07, 3.9988)
 
-[node name="pictureframe_large_A2" parent="TrainingRoom" instance=ExtResource("10_54pup")]
+[node name="pictureframe_large_A2" parent="TrainingRoom" instance=ExtResource("5_yqxqm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0974938, 2.64902, -4.99681)
 
-[node name="pictureframe_large_B2" parent="TrainingRoom" instance=ExtResource("11_3x4cn")]
+[node name="pictureframe_large_B2" parent="TrainingRoom" instance=ExtResource("6_w5rgx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37722, 2.65998, -5)
 
-[node name="shelf_A_big2" parent="TrainingRoom" instance=ExtResource("12_637cu")]
+[node name="shelf_A_big2" parent="TrainingRoom" instance=ExtResource("7_2wpp8")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.99097, 2.1541, -0.170872)
 
-[node name="book_set2" parent="TrainingRoom" instance=ExtResource("13_q1rf6")]
+[node name="book_set2" parent="TrainingRoom" instance=ExtResource("8_7s00m")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.79659, 2.4877, 0.312937)
 
-[node name="lamp_table" parent="TrainingRoom" instance=ExtResource("7_0b5cu")]
+[node name="lamp_table" parent="TrainingRoom" instance=ExtResource("9_cxdfg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65894, 0.454943, -4.08397)
-item = ExtResource("5_hxch0")
+item = ExtResource("10_si8eb")
 
-[node name="table_low2" parent="TrainingRoom" instance=ExtResource("6_vh2cp")]
+[node name="table_low2" parent="TrainingRoom" instance=ExtResource("11_3w7qy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.68314, 0, -3.92595)
 
-[node name="StaticHitbox" parent="TrainingRoom/table_low2" node_paths=PackedStringArray("item") instance=ExtResource("14_ver2p")]
+[node name="StaticHitbox" parent="TrainingRoom/table_low2" node_paths=PackedStringArray("item") instance=ExtResource("12_o16jc")]
 item = NodePath("..")
 
 [node name="bed_single_B2" type="Node3D" parent="TrainingRoom"]
@@ -305,7 +321,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.90635, 0, -3.23193)
 mesh = SubResource("ArrayMesh_x5yp3")
 skeleton = NodePath("")
 
-[node name="StaticHitbox" parent="TrainingRoom/bed_single_B2" node_paths=PackedStringArray("item") instance=ExtResource("14_ver2p")]
+[node name="StaticHitbox" parent="TrainingRoom/bed_single_B2" node_paths=PackedStringArray("item") instance=ExtResource("12_o16jc")]
 item = NodePath("..")
 
 [node name="Architecture" type="Node3D" parent="TrainingRoom"]
@@ -341,49 +357,58 @@ use_collision = true
 mesh = SubResource("PlaneMesh_qagst")
 
 [node name="Door" type="CSGBox3D" parent="TrainingRoom/Architecture"]
+unique_name_in_owner = true
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.99962, 0.203112, 0.00515074)
-material_override = SubResource("StandardMaterial3D_px37c")
 use_collision = true
 size = Vector3(0.20166, 3.03113, 2.04575)
-script = ExtResource("14_pgtgt")
 
-[node name="cabinet_medium2" parent="TrainingRoom" instance=ExtResource("5_66mvr")]
+[node name="Area3D" type="Area3D" parent="TrainingRoom/Architecture"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+script = ExtResource("15_ps50p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrainingRoom/Architecture/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.10263, 0.981689, 0.109955)
+shape = SubResource("BoxShape3D_y0bod")
+
+[node name="cabinet_medium2" parent="TrainingRoom" instance=ExtResource("15_y3yk4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9218, 0, -4.42343)
 
-[node name="StaticHitbox" parent="TrainingRoom/cabinet_medium2" node_paths=PackedStringArray("item") instance=ExtResource("14_ver2p")]
+[node name="StaticHitbox" parent="TrainingRoom/cabinet_medium2" node_paths=PackedStringArray("item") instance=ExtResource("12_o16jc")]
 item = NodePath("..")
 
-[node name="table_medium_long2" parent="TrainingRoom" instance=ExtResource("2_w0ncn")]
+[node name="table_medium_long2" parent="TrainingRoom" instance=ExtResource("16_ufigk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0166645, -0.0203521, 3.76589)
 
-[node name="StaticHitbox" parent="TrainingRoom/table_medium_long2" node_paths=PackedStringArray("item") instance=ExtResource("14_ver2p")]
+[node name="StaticHitbox" parent="TrainingRoom/table_medium_long2" node_paths=PackedStringArray("item") instance=ExtResource("12_o16jc")]
 item = NodePath("..")
 
-[node name="chair" parent="TrainingRoom" instance=ExtResource("7_0b5cu")]
+[node name="chair" parent="TrainingRoom" instance=ExtResource("9_cxdfg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0477302, 0, 1.66317)
-item = ExtResource("15_k4gva")
+item = ExtResource("17_6iiow")
 weight = 4
 
-[node name="blue_book" parent="TrainingRoom" instance=ExtResource("19_bs8p0")]
+[node name="blue_book" parent="TrainingRoom" instance=ExtResource("18_egtbt")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 2.62992, 0.596429, -3.91357)
 
-[node name="red_book" parent="TrainingRoom" instance=ExtResource("20_y2seq")]
+[node name="red_book" parent="TrainingRoom" instance=ExtResource("19_36rv1")]
 transform = Transform3D(-0.0360224, 0.793096, -0.60803, -0.998444, -0.00263945, 0.0557094, 0.0425781, 0.609091, 0.791957, -1.08749, 0.587165, 4.15387)
 
-[node name="blue_book2" parent="TrainingRoom" instance=ExtResource("19_bs8p0")]
+[node name="blue_book2" parent="TrainingRoom" instance=ExtResource("18_egtbt")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.79771, 2.48036, -0.219095)
 
 [node name="book_stack" type="Node3D" parent="TrainingRoom"]
 transform = Transform3D(-3.28812e-10, -0.00752235, -0.999972, 1, -4.37114e-08, 0, -4.37102e-08, -0.999972, 0.00752235, 1.67974, 0.355362, 3.08342)
 
-[node name="book_single2" parent="TrainingRoom/book_stack" instance=ExtResource("21_6j4vo")]
+[node name="book_single2" parent="TrainingRoom/book_stack" instance=ExtResource("20_4g55m")]
 transform = Transform3D(1, 3.55271e-15, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="book_single3" parent="TrainingRoom/book_stack" instance=ExtResource("21_6j4vo")]
+[node name="book_single3" parent="TrainingRoom/book_stack" instance=ExtResource("20_4g55m")]
 transform = Transform3D(1, 3.55271e-15, 0, 0, 1, 0, 0, 0, 1, 0.246866, 0.00506735, 0)
 
-[node name="book_single4" parent="TrainingRoom/book_stack" instance=ExtResource("21_6j4vo")]
+[node name="book_single4" parent="TrainingRoom/book_stack" instance=ExtResource("20_4g55m")]
 transform = Transform3D(1, 3.55271e-15, 0, 0, 1, 0, 0, 0, 1, -0.250841, 0.0126395, 1.19209e-07)
 
-[node name="Computer" parent="TrainingRoom" groups=["interaction"] instance=ExtResource("3_bmqxs")]
+[node name="Computer" parent="TrainingRoom" groups=["interaction"] instance=ExtResource("21_fxlox")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43739, 3.49329)
+
+[connection signal="body_entered" from="TrainingRoom/Architecture/Area3D" to="TrainingRoom/Architecture/Area3D" method="_on_body_entered"]

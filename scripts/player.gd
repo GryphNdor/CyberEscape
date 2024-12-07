@@ -25,8 +25,8 @@ var gravity = 9.8
 
 var can_interact = false
 
-# func _ready():
-#     Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+func _ready():
+    Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 func _unhandled_input(event):
@@ -63,8 +63,9 @@ func _physics_process(delta):
 
     if Input.is_action_just_pressed("interact") and can_interact:
         print("pog")
-        # Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-        # Engine.time_scale = 0
+        get_tree().call_group("interaction", "show_screen")
+        Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+        Engine.time_scale = 0
 
     if Input.is_action_pressed("ui_cancel"):
         get_tree().quit()

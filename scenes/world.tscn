@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://ceuwae5e4c2bx"]
+[gd_scene load_steps=37 format=4 uid="uid://b1prsnj01d756"]
 
 [ext_resource type="PackedScene" uid="uid://d0e1m85vkryn" path="res://scenes/player.tscn" id="1_e1ilf"]
 [ext_resource type="Script" path="res://scripts/interaction_label.gd" id="2_ravap"]
@@ -26,12 +26,12 @@
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_14jo5"]
+[sub_resource type="Sky" id="Sky_troje"]
 sky_material = SubResource("ProceduralSkyMaterial_4rjyt")
 
 [sub_resource type="Environment" id="Environment_jk407"]
 background_mode = 2
-sky = SubResource("Sky_14jo5")
+sky = SubResource("Sky_troje")
 tonemap_mode = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s11mv"]
