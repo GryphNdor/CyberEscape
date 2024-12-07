@@ -23,7 +23,7 @@ var gravity = 9.8
 @onready var camera = %Pivot/Camera3D
 @onready var ray = %Pivot/Camera3D/RayCast3D
 
-var can_interact = false
+var can_interact = ""
 
 func _ready():
     Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -38,9 +38,12 @@ func _unhandled_input(event):
 func in_range(collision_body) -> void:
     if (collision_body is Computer):
         get_tree().call_group("interaction", "player_in_range")
-        can_interact = true
-        pass
-
+        can_interact = "computer"
+    elif (collision_body is Robot):
+        get_tree().call_group("interaction", "player_in_range")
+        can_interact = "robot"
+    else:
+        can_interact = ""
 
 func _physics_process(delta):
     # Add the gravity.
@@ -52,6 +55,7 @@ func _physics_process(delta):
         in_range(c)
     else:
         can_interact = false
+        get_tree().call_group("interaction", "hide_hint")
         get_tree().call_group("interaction", "player_out_range")
 
     
@@ -61,13 +65,16 @@ func _physics_process(delta):
     # if Input.is_action_just_pressed("jump") and is_on_floor():
     #     velocity.y = JUMP_VELOCITY
 
-    if Input.is_action_just_pressed("interact") and can_interact:
-        print("pog")
+    if Input.is_action_just_pressed("interact") and can_interact == "computer":
         get_tree().call_group("interaction", "show_screen")
         Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
         Engine.time_scale = 0
 
+    if Input.is_action_just_pressed("interact") and can_interact == "robot":
+        get_tree().call_group("interaction", "show_hint", "tutorial")
+
     if Input.is_action_pressed("ui_cancel"):
+        # get_tree().call_group("interaction", "hide_screen")
         get_tree().quit()
 
     # Get the input direction and handle the movement/deceleration.

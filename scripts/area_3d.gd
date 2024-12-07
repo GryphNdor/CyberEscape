@@ -6,17 +6,13 @@ var is_open = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     var material = StandardMaterial3D.new()
-    # Set the color of the material
-    material.albedo_color = Color(1, 0, 0) # Red color
-    # Assign the material to the CSGBox
+    material.albedo_color = Color(1, 0, 0)
     door.material = material
     add_to_group("interaction")
 
 func open_door():
     var material = StandardMaterial3D.new()
-    # Set the color of the material
-    material.albedo_color = Color(0, 1, 0) # Red color
-    # Assign the material to the CSGBox
+    material.albedo_color = Color(0, 1, 0)
     door.material = material
     is_open = true
  

@@ -12,7 +12,6 @@ func _ready() -> void:
     leave_button.pressed.connect(self.hide_screen)
     submit_button.pressed.connect(self._submit_password)
     add_to_group("interaction")
-    pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
