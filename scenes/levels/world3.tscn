@@ -1,32 +1,32 @@
-[gd_scene load_steps=37 format=4 uid="uid://cdiynqs28n2jc"]
+[gd_scene load_steps=37 format=4 uid="uid://dqh5jwphff0tx"]
 
-[ext_resource type="PackedScene" uid="uid://bo13um322tmri" path="res://scenes/screen.tscn" id="1_8g8nv"]
-[ext_resource type="Texture2D" uid="uid://c8erkty4mld11" path="res://resources/pawprings.jpg" id="1_mqwfx"]
-[ext_resource type="PackedScene" uid="uid://d0e1m85vkryn" path="res://scenes/player.tscn" id="2_b6ong"]
-[ext_resource type="PackedScene" uid="uid://okndy25c5x13" path="res://scenes/info_screen.tscn" id="2_owbu8"]
-[ext_resource type="PackedScene" uid="uid://x20fd2ou87io" path="res://assets/cactus_medium_B.gltf" id="3_m47jk"]
-[ext_resource type="PackedScene" uid="uid://cwc4xcgofuf05" path="res://scenes/hud.tscn" id="3_onmpx"]
-[ext_resource type="PackedScene" uid="uid://clu1kqv177lkk" path="res://assets/table_small.gltf" id="4_h27tj"]
-[ext_resource type="Script" path="res://scripts/area_3d.gd" id="5_0dsn3"]
-[ext_resource type="PackedScene" uid="uid://deslei4n8o7iy" path="res://scenes/static_hitbox.tscn" id="5_1w10k"]
-[ext_resource type="PackedScene" uid="uid://bwc3byku0a8yh" path="res://scenes/computer.tscn" id="6_pweve"]
-[ext_resource type="Texture2D" uid="uid://dkjxm0nmad5ht" path="res://resources/cat.jpg" id="7_o153f"]
-[ext_resource type="Texture2D" uid="uid://dfyulf5q2hbu2" path="res://assets/cat_Cube_color.png" id="7_ru2kp"]
-[ext_resource type="Texture2D" uid="uid://bg5usf0821h1r" path="res://resources/meme.jpg" id="12_qceq0"]
-[ext_resource type="PackedScene" uid="uid://d0yxthjdw0p5f" path="res://assets/armchair_pillows.gltf" id="13_8370r"]
-[ext_resource type="PackedScene" uid="uid://5k7ssow8gux8" path="res://scenes/robot.tscn" id="14_5hayi"]
-[ext_resource type="PackedScene" uid="uid://bpn2gqr3k6ycr" path="res://scenes/dynamic_hitbox.tscn" id="16_7xtf3"]
-[ext_resource type="PackedScene" uid="uid://4k8s4mh6qgug" path="res://scenes/objects/info_book.tscn" id="17_38ttk"]
-[ext_resource type="PackedScene" uid="uid://cf5081qg3ynoy" path="res://scenes/objects/table_medium_2.tscn" id="17_jntpl"]
-[ext_resource type="PackedScene" uid="uid://dtkjff1k06t8p" path="res://assets/shelf_A_small.gltf" id="19_p834n"]
-[ext_resource type="PackedScene" uid="uid://cwes6pxs2ajox" path="res://assets/book_set.gltf" id="20_0mvn0"]
-[ext_resource type="PackedScene" uid="uid://cs2okkrvw6bcx" path="res://assets/table_low.gltf" id="20_738k2"]
-[ext_resource type="PackedScene" uid="uid://dtsuhu8vk60xb" path="res://scenes/objects/teleporter.tscn" id="21_r6bw1"]
+[ext_resource type="PackedScene" uid="uid://cwc4xcgofuf05" path="res://scenes/hud.tscn" id="1_vm5o5"]
+[ext_resource type="PackedScene" uid="uid://bo13um322tmri" path="res://scenes/screen.tscn" id="2_puc5i"]
+[ext_resource type="PackedScene" uid="uid://okndy25c5x13" path="res://scenes/info_screen.tscn" id="3_kpikg"]
+[ext_resource type="Texture2D" uid="uid://c8erkty4mld11" path="res://resources/pawprings.jpg" id="4_l88wx"]
+[ext_resource type="Script" path="res://scripts/area_3d.gd" id="5_kwmrx"]
+[ext_resource type="PackedScene" uid="uid://d0e1m85vkryn" path="res://scenes/player.tscn" id="6_mxrkg"]
+[ext_resource type="PackedScene" uid="uid://x20fd2ou87io" path="res://assets/cactus_medium_B.gltf" id="7_ni3x5"]
+[ext_resource type="PackedScene" uid="uid://clu1kqv177lkk" path="res://assets/table_small.gltf" id="8_txwqx"]
+[ext_resource type="PackedScene" uid="uid://deslei4n8o7iy" path="res://scenes/static_hitbox.tscn" id="9_2600b"]
+[ext_resource type="PackedScene" uid="uid://bwc3byku0a8yh" path="res://scenes/computer.tscn" id="10_basjp"]
+[ext_resource type="Texture2D" uid="uid://dfyulf5q2hbu2" path="res://assets/cat_Cube_color.png" id="11_l7mpu"]
+[ext_resource type="Texture2D" uid="uid://dkjxm0nmad5ht" path="res://resources/cat.jpg" id="12_xxvxx"]
+[ext_resource type="Texture2D" uid="uid://bg5usf0821h1r" path="res://resources/meme.jpg" id="13_spj8h"]
+[ext_resource type="PackedScene" uid="uid://d0yxthjdw0p5f" path="res://assets/armchair_pillows.gltf" id="14_ysoco"]
+[ext_resource type="PackedScene" uid="uid://5k7ssow8gux8" path="res://scenes/robot.tscn" id="15_oqfdq"]
+[ext_resource type="PackedScene" uid="uid://bpn2gqr3k6ycr" path="res://scenes/dynamic_hitbox.tscn" id="16_ugpud"]
+[ext_resource type="PackedScene" uid="uid://cf5081qg3ynoy" path="res://scenes/objects/table_medium_2.tscn" id="17_pkvef"]
+[ext_resource type="PackedScene" uid="uid://4k8s4mh6qgug" path="res://scenes/objects/info_book.tscn" id="18_6ed4o"]
+[ext_resource type="PackedScene" uid="uid://dtkjff1k06t8p" path="res://assets/shelf_A_small.gltf" id="19_jtxov"]
+[ext_resource type="PackedScene" uid="uid://cwes6pxs2ajox" path="res://assets/book_set.gltf" id="20_7dla3"]
+[ext_resource type="PackedScene" uid="uid://cs2okkrvw6bcx" path="res://assets/table_low.gltf" id="21_0ethr"]
+[ext_resource type="PackedScene" uid="uid://dtsuhu8vk60xb" path="res://scenes/objects/teleporter.tscn" id="22_npcwm"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jytmm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1dh01"]
-albedo_texture = ExtResource("1_mqwfx")
+albedo_texture = ExtResource("4_l88wx")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_djjyb"]
 
@@ -43,7 +43,7 @@ size = Vector3(1, 2.96338, 2.11432)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15fbm"]
 resource_name = "texturechat"
 cull_mode = 2
-albedo_texture = ExtResource("7_ru2kp")
+albedo_texture = ExtResource("11_l7mpu")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_wu6pt"]
@@ -937,14 +937,14 @@ viewport_path = NodePath("SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_7aj4g"]
 viewport_path = NodePath("SubViewport2")
 
-[node name="World1" type="Node3D"]
+[node name="World3" type="Node3D"]
 
-[node name="HUD" parent="." instance=ExtResource("3_onmpx")]
+[node name="HUD" parent="." instance=ExtResource("1_vm5o5")]
 
-[node name="Screen" parent="." instance=ExtResource("1_8g8nv")]
+[node name="Screen" parent="." instance=ExtResource("2_puc5i")]
 current_world = "world1"
 
-[node name="InfoScreen" parent="." instance=ExtResource("2_owbu8")]
+[node name="InfoScreen" parent="." instance=ExtResource("3_kpikg")]
 mouse_filter = 0
 
 [node name="Architecture" type="Node3D" parent="."]
@@ -1009,33 +1009,33 @@ size = Vector3(0.20166, 3.03113, 2.04575)
 
 [node name="Area3D" type="Area3D" parent="Architecture"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 2.37896, 0, 0)
-script = ExtResource("5_0dsn3")
+script = ExtResource("5_kwmrx")
 next_world = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Architecture/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.10263, 0.981689, 0.109955)
 shape = SubResource("BoxShape3D_jpapf")
 
-[node name="Player" parent="." instance=ExtResource("2_b6ong")]
+[node name="Player" parent="." instance=ExtResource("6_mxrkg")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.850139, 0.989763, 0.0454119)
 current_world = "world1"
 
-[node name="cactus_medium_B2" parent="." instance=ExtResource("3_m47jk")]
+[node name="cactus_medium_B2" parent="." instance=ExtResource("7_ni3x5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6852, 0, -3.60612)
 
-[node name="table_small2" parent="." instance=ExtResource("4_h27tj")]
+[node name="table_small2" parent="." instance=ExtResource("8_txwqx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7036, 0, 3.35361)
 
-[node name="StaticHitbox" parent="table_small2" node_paths=PackedStringArray("item") instance=ExtResource("5_1w10k")]
+[node name="StaticHitbox" parent="table_small2" node_paths=PackedStringArray("item") instance=ExtResource("9_2600b")]
 item = NodePath("..")
 
-[node name="Computer" parent="." groups=["interaction"] instance=ExtResource("6_pweve")]
+[node name="Computer" parent="." groups=["interaction"] instance=ExtResource("10_basjp")]
 transform = Transform3D(0.423946, 0, 0.905687, 0, 1, 0, -0.905687, 0, 0.423946, 14.693, 1.45321, 3.34793)
 
 [node name="cat" type="Node3D" parent="."]
 transform = Transform3D(2.81042, 0, 4.1354, 0, 5, 0, -4.1354, 0, 2.81042, -10.1041, -0.0331483, -1.9631)
 
-[node name="StaticHitbox" parent="cat" node_paths=PackedStringArray("item") instance=ExtResource("5_1w10k")]
+[node name="StaticHitbox" parent="cat" node_paths=PackedStringArray("item") instance=ExtResource("9_2600b")]
 transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item = NodePath("../rig/Skeleton3D")
 
@@ -3032,7 +3032,7 @@ skin = SubResource("Skin_nullh")
 [node name="cat2" type="Node3D" parent="."]
 transform = Transform3D(-0.844168, 0, -4.92822, 0, 5, 0, 4.92822, 0, -0.844168, 6.90695, -0.0331483, 3.04412)
 
-[node name="StaticHitbox" parent="cat2" node_paths=PackedStringArray("item") instance=ExtResource("5_1w10k")]
+[node name="StaticHitbox" parent="cat2" node_paths=PackedStringArray("item") instance=ExtResource("9_2600b")]
 transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item = NodePath("../rig/Skeleton3D")
 
@@ -5034,7 +5034,7 @@ skin = SubResource("Skin_nullh")
 [node name="cat3" type="Node3D" parent="."]
 transform = Transform3D(-2.45923, 0, 4.35341, 0, 5, 0, -4.35341, 0, -2.45923, -8.30745, -0.0331483, 2.00129)
 
-[node name="StaticHitbox" parent="cat3" node_paths=PackedStringArray("item") instance=ExtResource("5_1w10k")]
+[node name="StaticHitbox" parent="cat3" node_paths=PackedStringArray("item") instance=ExtResource("9_2600b")]
 transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item = NodePath("../rig/Skeleton3D")
 
@@ -7031,7 +7031,7 @@ skin = SubResource("Skin_nullh")
 [node name="cat4" type="Node3D" parent="."]
 transform = Transform3D(4.94892, 0, 0.712886, 0, 5, 0, -0.712885, 0, 4.94892, -15.7986, -0.0331483, 3.08038)
 
-[node name="StaticHitbox" parent="cat4" node_paths=PackedStringArray("item") instance=ExtResource("5_1w10k")]
+[node name="StaticHitbox" parent="cat4" node_paths=PackedStringArray("item") instance=ExtResource("9_2600b")]
 transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item = NodePath("../rig/Skeleton3D")
 
@@ -9028,7 +9028,7 @@ skin = SubResource("Skin_nullh")
 [node name="cat5" type="Node3D" parent="."]
 transform = Transform3D(-1.26946, 0, 4.83616, 0, 5, 0, -4.83616, 0, -1.26947, -15.2352, -0.0331483, 12.8541)
 
-[node name="StaticHitbox" parent="cat5" node_paths=PackedStringArray("item") instance=ExtResource("5_1w10k")]
+[node name="StaticHitbox" parent="cat5" node_paths=PackedStringArray("item") instance=ExtResource("9_2600b")]
 transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item = NodePath("../rig/Skeleton3D")
 
@@ -11025,7 +11025,7 @@ skin = SubResource("Skin_nullh")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.199405, 0, 0, 0, 0.199405, 0, 0, 0, 0.199405, -6.56941, 5.62751, 14.7635)
 flip_h = true
-texture = ExtResource("7_o153f")
+texture = ExtResource("12_xxvxx")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -11036,7 +11036,7 @@ environment = SubResource("Environment_uji55")
 
 [node name="Sprite3D2" type="Sprite3D" parent="."]
 transform = Transform3D(0.354404, 0, 0, 0, 0.329514, 0, 0, 0, 1, 4.85503, 2.47184, -4.98195)
-texture = ExtResource("12_qceq0")
+texture = ExtResource("13_spj8h")
 
 [node name="Sprite3D3" type="Sprite3D" parent="."]
 transform = Transform3D(0.00611508, 0, -0.1994, 0, 0.754779, 0, 0.900671, 0, 0.00135382, 9.87038, 5.62751, 0.205682)
@@ -11074,63 +11074,63 @@ theme_override_font_sizes/font_size = 108
 text = "N"
 horizontal_alignment = 1
 
-[node name="armchair_pillows2" parent="." instance=ExtResource("13_8370r")]
+[node name="armchair_pillows2" parent="." instance=ExtResource("14_ysoco")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.56189, -0.0295916, 13.4693)
 
-[node name="StaticHitbox" parent="armchair_pillows2" node_paths=PackedStringArray("item") instance=ExtResource("5_1w10k")]
+[node name="StaticHitbox" parent="armchair_pillows2" node_paths=PackedStringArray("item") instance=ExtResource("9_2600b")]
 item = NodePath("..")
 
-[node name="Robot" parent="." instance=ExtResource("14_5hayi")]
+[node name="Robot" parent="." instance=ExtResource("15_oqfdq")]
 transform = Transform3D(0.543277, 0, -0.839554, 0, 1, 0, 0.839554, 0, 0.543277, 14.5407, 0, -3.49942)
 
-[node name="table" parent="." instance=ExtResource("16_7xtf3")]
+[node name="table" parent="." instance=ExtResource("16_ugpud")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0822, 0.380967, 10.9261)
-item = ExtResource("17_jntpl")
+item = ExtResource("17_pkvef")
 weight = 5
 
-[node name="InfoBook0" parent="." instance=ExtResource("17_38ttk")]
+[node name="InfoBook0" parent="." instance=ExtResource("18_6ed4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.82297, 0.137281, 0)
 current_world = "world1"
 book_number = 0
 
-[node name="InfoBook1" parent="." instance=ExtResource("17_38ttk")]
+[node name="InfoBook1" parent="." instance=ExtResource("18_6ed4o")]
 transform = Transform3D(0.018133, -0.999836, 0, 0.999836, 0.018133, 0, 0, 0, 1, 3.90628, 2.76125, 4.70001)
 current_world = "world1"
 book_number = 1
 
-[node name="InfoBook2" parent="." instance=ExtResource("17_38ttk")]
+[node name="InfoBook2" parent="." instance=ExtResource("18_6ed4o")]
 transform = Transform3D(0.458665, 0, -0.888609, 0, 1, 0, 0.888609, 0, 0.458665, -7.39677, 0.645785, 10.7781)
 current_world = "world1"
 book_number = 2
 
-[node name="InfoBook3" parent="." instance=ExtResource("17_38ttk")]
+[node name="InfoBook3" parent="." instance=ExtResource("18_6ed4o")]
 transform = Transform3D(0.0726116, 0, -0.997361, 0, 1, 0, 0.997361, 0, 0.0726116, -8.13752, 4.51593, 5.96246)
 current_world = "world1"
 book_number = 3
 
-[node name="InfoBook4" parent="." instance=ExtResource("17_38ttk")]
+[node name="InfoBook4" parent="." instance=ExtResource("18_6ed4o")]
 transform = Transform3D(0.999919, 0, -0.012758, 0, 1, 0, 0.012758, 0, 0.999919, -2.65951, 4.53386, -0.938497)
 current_world = "world1"
 book_number = 4
 
-[node name="shelf_A_small2" parent="." instance=ExtResource("19_p834n")]
+[node name="shelf_A_small2" parent="." instance=ExtResource("19_jtxov")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4.23187, 2.43996, 4.85414)
 
-[node name="book_set2" parent="." instance=ExtResource("20_0mvn0")]
+[node name="book_set2" parent="." instance=ExtResource("20_7dla3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.35257, 2.76771, 4.69699)
 
-[node name="table_low2" parent="." instance=ExtResource("20_738k2")]
+[node name="table_low2" parent="." instance=ExtResource("21_0ethr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7173, 0, 11.0001)
 
-[node name="StaticHitbox" parent="table_low2" node_paths=PackedStringArray("item") instance=ExtResource("5_1w10k")]
+[node name="StaticHitbox" parent="table_low2" node_paths=PackedStringArray("item") instance=ExtResource("9_2600b")]
 item = NodePath("..")
 
-[node name="Teleporter" parent="." node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("21_r6bw1")]
+[node name="Teleporter" parent="." node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("22_npcwm")]
 transform = Transform3D(-0.999799, 0, 0.0200699, 0, 1, 0, -0.0200699, 0, -0.999799, -5.15926, 1.3959, 6.41928)
 linked_teleporter = NodePath("../Teleporter2")
 
-[node name="Teleporter2" parent="." node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("21_r6bw1")]
-transform = Transform3D(0.143424, 0, -0.989662, 0, 1, 0, 0.989662, 0, 0.143424, -9.75352, 6.64151, -2.10356)
+[node name="Teleporter2" parent="." node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("22_npcwm")]
+transform = Transform3D(0.967498, 0, -0.25288, 0, 1, 0, 0.25288, 0, 0.967498, -9.75352, 6.64151, -2.10356)
 linked_teleporter = NodePath("../Teleporter")
 
 [connection signal="body_entered" from="Architecture/Area3D" to="Architecture/Area3D" method="_on_body_entered"]
