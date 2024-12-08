@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://b1prsnj01d756"]
+[gd_scene load_steps=39 format=4 uid="uid://b1prsnj01d756"]
 
 [ext_resource type="PackedScene" uid="uid://d0e1m85vkryn" path="res://scenes/player.tscn" id="1_yd3hp"]
 [ext_resource type="PackedScene" uid="uid://cwc4xcgofuf05" path="res://scenes/hud.tscn" id="2_6kcrw"]
@@ -102,6 +102,9 @@ shadow_mesh = SubResource("ArrayMesh_cj813")
 [sub_resource type="BoxShape3D" id="BoxShape3D_y0bod"]
 size = Vector3(1, 2.96338, 2.11432)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_b5hss"]
+viewport_path = NodePath("SubViewport")
+
 [node name="World" type="Node3D"]
 script = SubResource("GDScript_sb70s")
 
@@ -109,12 +112,12 @@ script = SubResource("GDScript_sb70s")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Screen" parent="." instance=ExtResource("4_83sb8")]
-
 [node name="HUD" parent="." instance=ExtResource("2_6kcrw")]
 unique_name_in_owner = true
 
 [node name="InfoScreen" parent="." instance=ExtResource("3_e72tt")]
+
+[node name="Screen" parent="." instance=ExtResource("4_83sb8")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jk407")
@@ -287,5 +290,28 @@ transform = Transform3D(-0.707115, 0.00235579, 0.707095, 0.0031798, 0.999995, -0
 [node name="InfoBook" parent="." instance=ExtResource("26_0fagc")]
 transform = Transform3D(0.895999, 0, 0.444057, 0, 1, 0, -0.444057, 0, 0.895999, 3.6245, 0.625884, -2.54976)
 current_world = "tutorial"
+
+[node name="Basics" type="Sprite3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.0660822, 2.7228, 4.99239)
+flip_h = true
+texture = SubResource("ViewportTexture_b5hss")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(512, 300)
+
+[node name="Basics" type="PanelContainer" parent="SubViewport"]
+unique_name_in_owner = true
+offset_right = 512.0
+offset_bottom = 312.0
+
+[node name="Label" type="RichTextLabel" parent="SubViewport/Basics"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+bbcode_enabled = true
+text = "Basic Controls:
+- Use WASD to move
+- Use (E) to interact with interactable objects
+[b]Make the door turn green to escape[/b]"
 
 [connection signal="body_entered" from="TrainingRoom/Architecture/Area3D" to="TrainingRoom/Architecture/Area3D" method="_on_body_entered"]

@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 AudioPlayer="*res://scenes/AudioPlayer.tscn"
-Hud="*res://scenes/hud.tscn"
 
 [display]
 

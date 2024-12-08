@@ -27,6 +27,7 @@ var gravity = 9.8
 
 var can_interact = ""
 var text = ""
+var teleport_position
 
 func _ready():
     Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -39,6 +40,7 @@ func _unhandled_input(event):
         camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 
 func in_range(collision_body) -> void:
+    # print(collision_body)
     if (collision_body is Computer):
         get_tree().call_group("interaction", "player_in_range")
         can_interact = "computer"
@@ -50,6 +52,11 @@ func in_range(collision_body) -> void:
         can_interact = "book"
         var book = collision_body as Book
         text = book.get_book_info()
+    elif (collision_body is Teleporter):
+        get_tree().call_group("interaction", "player_in_range")
+        can_interact = "teleporter"
+        var tele = collision_body as Teleporter
+        teleport_position = tele.get_linked()
     else:
         can_interact = ""
         text = ""
@@ -81,6 +88,9 @@ func _physics_process(delta):
 
     if Input.is_action_just_pressed("interact") and can_interact == "book":
         get_tree().call_group("interaction", "show_info_screen", text)
+
+    if Input.is_action_just_pressed("interact") and can_interact == "teleporter":
+        position = teleport_position
 
     if Input.is_action_pressed("ui_cancel"):
         get_tree().call_group("interaction", "hide_screen")

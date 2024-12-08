@@ -3,16 +3,16 @@ class_name HUD
 
 @onready var hint = %Hint
 @onready var hint_container = %HintContainer
-@onready var basics = %Basics
+@onready var interaction_label = %InteractionLabel
 
 func _ready() -> void:
     add_to_group("interaction")
 
-func enable_basics():
-    basics.visible = true
+func player_in_range():
+    interaction_label.visible = true
 
-func disable_basics():
-    basics.visible = false
+func player_out_range():
+    interaction_label.visible = false
 
 func show_hint(text):
     hint_container.visible = true

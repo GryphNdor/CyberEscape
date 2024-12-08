@@ -15,21 +15,6 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_d1c8y")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 0
-offset_right = 512.0
-offset_bottom = 312.0
-
-[node name="Label" type="RichTextLabel" parent="PanelContainer"]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 36
-theme_override_font_sizes/bold_font_size = 36
-bbcode_enabled = true
-text = "Basic Controls:
-- Use WASD to move
-- Use (E) to interact with interactable objects
-[b]Make the door turn green to escape[/b]"
-
 [node name="InteractionLabel" type="Label" parent="." groups=["interaction"]]
 unique_name_in_owner = true
 visible = false

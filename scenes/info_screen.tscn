@@ -43,4 +43,5 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 52
+bbcode_enabled = true
 text = "sdfjkasdjfkl;j;"

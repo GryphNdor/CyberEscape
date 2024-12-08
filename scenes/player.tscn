@@ -10,6 +10,7 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.918478, 0)
 script = ExtResource("1_ul0wj")
+current_world = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_sr6au")
@@ -27,5 +28,5 @@ fov = 45.0
 
 [node name="RayCast3D" type="RayCast3D" parent="Pivot/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0148427, 0.07727)
-target_position = Vector3(0, 0, -2)
+target_position = Vector3(0, 0, -2.5)
 hit_back_faces = false

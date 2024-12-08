@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtsuhu8vk60xb"]
+
+[ext_resource type="Script" path="res://scripts/teleporter.gd" id="1_k31dt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ca2pd"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_a7en3"]
+viewport_path = NodePath("SubViewport2")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7cb1l"]
+height = 3.0138
+radius = 1.32377
+
+[node name="Teleporter" type="CSGBox3D"]
+material_override = SubResource("StandardMaterial3D_ca2pd")
+use_collision = true
+size = Vector3(1, 2.91986, 1.68835)
+script = ExtResource("1_k31dt")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(-2.52909e-08, 0, 0.526389, 0, 0.996296, 0, -0.578589, 0, -2.30091e-08, 0.502584, 0.873224, -0.253039)
+texture = SubResource("ViewportTexture_a7en3")
+
+[node name="SubViewport2" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(350, 80)
+
+[node name="Label" type="Label" parent="SubViewport2"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 52
+text = "Teleporter"
+
+[node name="Hitbox" type="Area3D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+shape = SubResource("CylinderShape3D_7cb1l")

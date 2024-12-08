@@ -36,3 +36,10 @@ func _submit_password():
                 hide_screen()
             else:
                 error.visible = true
+        "world1":
+            if password_input.get_text().to_lower() == "sardine":
+                password_container.visible = false
+                get_tree().call_group("interaction", "open_door")
+                hide_screen()
+            else:
+                error.visible = true
