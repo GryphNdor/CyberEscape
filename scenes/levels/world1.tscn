@@ -923,12 +923,12 @@ bind/282/pose = Transform3D(-0.798084, 0.299904, 0.522606, 0.522606, -0.0871659,
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_qi8ac"]
+[sub_resource type="Sky" id="Sky_8bihj"]
 sky_material = SubResource("ProceduralSkyMaterial_edcjh")
 
 [sub_resource type="Environment" id="Environment_uji55"]
 background_mode = 2
-sky = SubResource("Sky_qi8ac")
+sky = SubResource("Sky_8bihj")
 tonemap_mode = 2
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_auux6"]
@@ -1010,6 +1010,7 @@ size = Vector3(0.20166, 3.03113, 2.04575)
 [node name="Area3D" type="Area3D" parent="Architecture"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 2.37896, 0, 0)
 script = ExtResource("5_0dsn3")
+next_world = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Architecture/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.10263, 0.981689, 0.109955)

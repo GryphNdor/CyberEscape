@@ -1,0 +1,101 @@
+[gd_scene load_steps=13 format=3 uid="uid://dv26y15xlmwky"]
+
+[ext_resource type="PackedScene" uid="uid://d0e1m85vkryn" path="res://scenes/player.tscn" id="1_732vs"]
+[ext_resource type="PackedScene" uid="uid://cwc4xcgofuf05" path="res://scenes/hud.tscn" id="1_vxdxg"]
+[ext_resource type="Script" path="res://scripts/area_3d.gd" id="2_h0hnm"]
+[ext_resource type="PackedScene" uid="uid://bo13um322tmri" path="res://scenes/screen.tscn" id="2_y4fu3"]
+[ext_resource type="PackedScene" uid="uid://okndy25c5x13" path="res://scenes/info_screen.tscn" id="3_wr777"]
+[ext_resource type="PackedScene" uid="uid://bwc3byku0a8yh" path="res://scenes/computer.tscn" id="3_x4pok"]
+[ext_resource type="PackedScene" uid="uid://dtsuhu8vk60xb" path="res://scenes/objects/teleporter.tscn" id="7_v87ig"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xfull"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t5k42"]
+size = Vector3(1, 2.96338, 2.11432)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o0wyv"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_qi8ac"]
+sky_material = SubResource("ProceduralSkyMaterial_o0wyv")
+
+[sub_resource type="Environment" id="Environment_u8lj4"]
+background_mode = 2
+sky = SubResource("Sky_qi8ac")
+tonemap_mode = 2
+
+[node name="World2" type="Node3D"]
+
+[node name="HUD" parent="." instance=ExtResource("1_vxdxg")]
+
+[node name="Screen" parent="." instance=ExtResource("2_y4fu3")]
+current_world = "world1"
+
+[node name="InfoScreen" parent="." instance=ExtResource("3_wr777")]
+mouse_filter = 0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0352, 2.02461, 4.05733)
+use_collision = true
+size = Vector3(8, 5, 8)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+operation = 2
+size = Vector3(7, 5, 7)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0352, 2.02461, -25.7825)
+use_collision = true
+size = Vector3(19, 5, 8)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D2"]
+operation = 2
+size = Vector3(18, 5, 7)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
+use_collision = true
+mesh = SubResource("PlaneMesh_xfull")
+
+[node name="Player" parent="." instance=ExtResource("1_732vs")]
+transform = Transform3D(0.0621634, 0, 0.998066, 0, 1, 0, -0.998066, 0, 0.0621634, 5.03374, 1.05278, 2.93993)
+
+[node name="Door" type="CSGBox3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13749, 1.55843, 3.77733)
+use_collision = true
+size = Vector3(0.20166, 3.03113, 2.04575)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.137872, 1.35532, 3.77218)
+script = ExtResource("2_h0hnm")
+next_world = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46056, 0.231476, 0.109955)
+shape = SubResource("BoxShape3D_t5k42")
+
+[node name="Computer" parent="." groups=["interaction"] instance=ExtResource("3_x4pok")]
+transform = Transform3D(0.728622, 0, -0.684915, 0, 1, 0, 0.684915, 0, 0.728622, 1.8458, 0.46551, 6.59596)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_u8lj4")
+
+[node name="Teleporter" parent="." node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-0.681194, 0, 0.732103, 0, 1, 0, -0.732103, 0, -0.681194, 6.20912, 1.48327, 6.07028)
+linked_teleporter = NodePath("../Teleporter2")
+
+[node name="Teleporter2" parent="." node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.81467, 1.56947, -23.4881)
+linked_teleporter = NodePath("../Teleporter")
+
+[node name="Teleporter3" parent="." node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12.2669, 1.56947, -27.9604)
+linked_teleporter = NodePath("../Teleporter")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

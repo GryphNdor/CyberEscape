@@ -1,8 +1,13 @@
 extends Area3D
 
 @onready var door = %Door
-@export var is_teleporter = false
+@export var next_world = 0
 var is_open = false
+
+var worlds = [
+    "res://scenes/levels/world1.tscn",
+    "res://scenes/levels/world2.tscn",
+]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,6 +24,4 @@ func open_door():
  
 func _on_body_entered(_body: Node3D) -> void:
     if is_open:
-        get_tree().change_scene_to_file("res://scenes/levels/world1.tscn")
-    if is_teleporter:
-        get_tree().get_root().find_node("Teleporter")
+        get_tree().change_scene_to_file(worlds[next_world])
