@@ -1,10 +1,12 @@
-[gd_scene load_steps=23 format=4 uid="uid://cdiynqs28n2jc"]
+[gd_scene load_steps=26 format=4 uid="uid://cdiynqs28n2jc"]
 
+[ext_resource type="PackedScene" uid="uid://bo13um322tmri" path="res://scenes/screen.tscn" id="1_8g8nv"]
 [ext_resource type="Texture2D" uid="uid://c8erkty4mld11" path="res://resources/pawprings.jpg" id="1_mqwfx"]
-[ext_resource type="Script" path="res://scripts/interaction_label.gd" id="1_um2jx"]
 [ext_resource type="PackedScene" uid="uid://d0e1m85vkryn" path="res://scenes/player.tscn" id="2_b6ong"]
 [ext_resource type="Material" uid="uid://donpmhvdkxylp" path="res://resources/wall_color1.tres" id="2_opqmm"]
+[ext_resource type="PackedScene" uid="uid://okndy25c5x13" path="res://scenes/info_screen.tscn" id="2_owbu8"]
 [ext_resource type="PackedScene" uid="uid://x20fd2ou87io" path="res://assets/cactus_medium_B.gltf" id="3_m47jk"]
+[ext_resource type="PackedScene" uid="uid://cwc4xcgofuf05" path="res://scenes/hud.tscn" id="3_onmpx"]
 [ext_resource type="PackedScene" uid="uid://clu1kqv177lkk" path="res://assets/table_small.gltf" id="4_h27tj"]
 [ext_resource type="PackedScene" uid="uid://deslei4n8o7iy" path="res://scenes/static_hitbox.tscn" id="5_1w10k"]
 [ext_resource type="PackedScene" uid="uid://bwc3byku0a8yh" path="res://scenes/computer.tscn" id="6_pweve"]
@@ -12,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dfyulf5q2hbu2" path="res://assets/cat_Cube_color.png" id="7_ru2kp"]
 [ext_resource type="Texture2D" uid="uid://bg5usf0821h1r" path="res://resources/meme.jpg" id="12_qceq0"]
 [ext_resource type="PackedScene" uid="uid://d0yxthjdw0p5f" path="res://assets/armchair_pillows.gltf" id="13_8370r"]
+[ext_resource type="PackedScene" uid="uid://5k7ssow8gux8" path="res://scenes/robot.tscn" id="14_5hayi"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jytmm"]
 
@@ -916,53 +919,11 @@ tonemap_mode = 2
 
 [node name="World2" type="Node3D"]
 
-[node name="HUD" type="Control" parent="."]
-unique_name_in_owner = true
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="Screen" parent="." instance=ExtResource("1_8g8nv")]
 
-[node name="Label" type="Label" parent="HUD"]
-layout_mode = 0
-offset_left = -3.0
-offset_top = 2.0
-offset_right = 226.0
-offset_bottom = 37.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 36
-text = "Use WASD to move"
+[node name="InfoScreen" parent="." instance=ExtResource("2_owbu8")]
 
-[node name="InteractionLabel" type="Label" parent="HUD" groups=["interaction"]]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.5
-offset_top = -11.5
-offset_right = 75.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 36
-text = "Press (E) to Interact"
-script = ExtResource("1_um2jx")
-
-[node name="WorldLabel" type="RichTextLabel" parent="HUD"]
-visible = false
-layout_mode = 0
-offset_right = 401.0
-offset_bottom = 90.0
-theme_override_font_sizes/normal_font_size = 48
-text = "Test world 1"
+[node name="HUD" parent="." instance=ExtResource("3_onmpx")]
 
 [node name="Architecture" type="Node3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
@@ -1022,6 +983,7 @@ size = Vector3(0.20166, 3.03113, 2.04575)
 
 [node name="Player" parent="." instance=ExtResource("2_b6ong")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.918478, 0)
+current_world = "world1"
 
 [node name="cactus_medium_B2" parent="." instance=ExtResource("3_m47jk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6852, 0, -3.60612)
@@ -3050,3 +3012,6 @@ size = Vector3(1, 2.91986, 1.68835)
 
 [node name="armchair_pillows2" parent="." instance=ExtResource("13_8370r")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.56189, -0.0295916, 13.7848)
+
+[node name="Robot" parent="." instance=ExtResource("14_5hayi")]
+transform = Transform3D(0.543277, 0, -0.839554, 0, 1, 0, 0.839554, 0, 0.543277, 14.5407, 0, -3.49942)

@@ -6,6 +6,7 @@
 
 [sub_resource type="SystemFont" id="SystemFont_smwv8"]
 font_names = PackedStringArray("Agency FB")
+subpixel_positioning = 0
 
 [node name="LevelSelectScreen" type="Control"]
 layout_mode = 3

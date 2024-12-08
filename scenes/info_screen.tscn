@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://okndy25c5x13"]
+
+[ext_resource type="Script" path="res://scripts/info_screen.gd" id="1_1mneu"]
+
+[node name="InfoScreen" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_1mneu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+offset_left = 478.0
+offset_right = 1922.0
+offset_bottom = 1808.0
+color = Color(0.941966, 0.940858, 0.842264, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -722.0
+offset_right = 722.0
+offset_bottom = 1744.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 52
+text = "Information Book"
+horizontal_alignment = 1
+
+[node name="Info" type="RichTextLabel" parent="ColorRect/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 52
+text = "sdfjkasdjfkl;j;"

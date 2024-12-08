@@ -1,10 +1,10 @@
-[gd_scene load_steps=40 format=4 uid="uid://b1prsnj01d756"]
+[gd_scene load_steps=38 format=4 uid="uid://b1prsnj01d756"]
 
 [ext_resource type="PackedScene" uid="uid://d0e1m85vkryn" path="res://scenes/player.tscn" id="1_yd3hp"]
-[ext_resource type="Script" path="res://scripts/interaction_label.gd" id="2_vvg87"]
-[ext_resource type="Script" path="res://scripts/screen.gd" id="3_1wpdf"]
-[ext_resource type="Texture2D" uid="uid://cmtwcnahm3rqu" path="res://icon.svg" id="3_021wx"]
+[ext_resource type="PackedScene" uid="uid://cwc4xcgofuf05" path="res://scenes/hud.tscn" id="2_6kcrw"]
+[ext_resource type="PackedScene" uid="uid://okndy25c5x13" path="res://scenes/info_screen.tscn" id="3_e72tt"]
 [ext_resource type="PackedScene" uid="uid://pl8sfekx1hpu" path="res://assets/rug_rectangle_stripes_B.gltf" id="3_t0qbv"]
+[ext_resource type="PackedScene" uid="uid://bo13um322tmri" path="res://scenes/screen.tscn" id="4_83sb8"]
 [ext_resource type="PackedScene" uid="uid://bxlfhu7jep5bc" path="res://assets/lamp_standing.gltf" id="4_cldrb"]
 [ext_resource type="PackedScene" uid="uid://m63e665v11rw" path="res://assets/pictureframe_large_A.gltf" id="5_yqxqm"]
 [ext_resource type="PackedScene" uid="uid://bwgbbcyouxvxv" path="res://assets/pictureframe_large_B.gltf" id="6_w5rgx"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://oxccpdujcvy2" path="res://assets/book_single.gltf" id="20_4g55m"]
 [ext_resource type="PackedScene" uid="uid://bwc3byku0a8yh" path="res://scenes/computer.tscn" id="21_fxlox"]
 [ext_resource type="PackedScene" uid="uid://5k7ssow8gux8" path="res://scenes/robot.tscn" id="23_g0u5e"]
+[ext_resource type="PackedScene" uid="uid://4k8s4mh6qgug" path="res://scenes/objects/info_book.tscn" id="26_0fagc"]
 
 [sub_resource type="GDScript" id="GDScript_sb70s"]
 script/source = "extends Node3D
@@ -48,14 +49,6 @@ sky_material = SubResource("ProceduralSkyMaterial_4rjyt")
 background_mode = 2
 sky = SubResource("Sky_10yap")
 tonemap_mode = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s11mv"]
-bg_color = Color(1.34766e-06, 0.651326, 0.887248, 1)
-
-[sub_resource type="Theme" id="Theme_qxhsx"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qe6mu"]
-bg_color = Color(1, 0, 0, 1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_axt4f"]
 viewport_path = NodePath("TrainingRoom/Sprite3D/SubViewport")
@@ -116,206 +109,20 @@ script = SubResource("GDScript_sb70s")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
+[node name="Screen" parent="." instance=ExtResource("4_83sb8")]
+
+[node name="HUD" parent="." instance=ExtResource("2_6kcrw")]
+unique_name_in_owner = true
+
+[node name="InfoScreen" parent="." instance=ExtResource("3_e72tt")]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jk407")
 
 [node name="Player" parent="." groups=["interaction"] instance=ExtResource("1_yd3hp")]
 unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.2913, 0)
-
-[node name="HUD" type="Control" parent="."]
-unique_name_in_owner = true
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="HUD"]
-layout_mode = 0
-offset_right = 392.0
-offset_bottom = 272.0
-
-[node name="Label" type="RichTextLabel" parent="HUD/PanelContainer"]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 36
-text = "Basic Controls:
-- Use WASD to move
-- Use (E) to interact with interactable objects"
-
-[node name="InteractionLabel" type="Label" parent="HUD" groups=["interaction"]]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.5
-offset_top = -11.5
-offset_right = 75.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 36
-text = "Press (E) to Interact"
-script = ExtResource("2_vvg87")
-
-[node name="WorldLabel" type="RichTextLabel" parent="HUD"]
-visible = false
-layout_mode = 0
-offset_right = 401.0
-offset_bottom = 90.0
-theme_override_font_sizes/normal_font_size = 48
-text = "Test world 1"
-
-[node name="HintContainer" type="CenterContainer" parent="HUD"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(1000, 0)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -604.5
-offset_top = -246.0
-offset_right = 604.5
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="PanelContainer" type="PanelContainer" parent="HUD/HintContainer"]
-custom_minimum_size = Vector2(1000, 0)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="HUD/HintContainer/PanelContainer"]
-layout_mode = 2
-
-[node name="HSplitContainer" type="HSplitContainer" parent="HUD/HintContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="HUD/HintContainer/PanelContainer/MarginContainer/HSplitContainer"]
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-texture = ExtResource("3_021wx")
-stretch_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/HintContainer/PanelContainer/MarginContainer/HSplitContainer"]
-custom_minimum_size = Vector2(700, 0)
-layout_mode = 2
-
-[node name="Label2" type="Label" parent="HUD/HintContainer/PanelContainer/MarginContainer/HSplitContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 36
-text = "HintBot3000 says:"
-
-[node name="Hint" type="RichTextLabel" parent="HUD/HintContainer/PanelContainer/MarginContainer/HSplitContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 36
-fit_content = true
-
-[node name="Screen" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-script = ExtResource("3_1wpdf")
-
-[node name="ColorRect" type="ColorRect" parent="Screen"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 1, 1)
-
-[node name="CenterContainer" type="CenterContainer" parent="Screen/ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PasswordContainer" type="PanelContainer" parent="Screen/ColorRect/CenterContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(900, 375)
-layout_mode = 2
-mouse_filter = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="Screen/ColorRect/CenterContainer/PasswordContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Screen/ColorRect/CenterContainer/PasswordContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Screen/ColorRect/CenterContainer/PasswordContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 64
-text = "Master Door Computer"
-
-[node name="VBoxContainer" type="HBoxContainer" parent="Screen/ColorRect/CenterContainer/PasswordContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="PasswordInput" type="LineEdit" parent="Screen/ColorRect/CenterContainer/PasswordContainer/MarginContainer/VBoxContainer/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 40
-placeholder_text = "Password"
-max_length = 4
-expand_to_text_length = true
-
-[node name="SubmitButton" type="Button" parent="Screen/ColorRect/CenterContainer/PasswordContainer/MarginContainer/VBoxContainer/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_s11mv")
-text = "Submit"
-
-[node name="Error" type="Label" parent="Screen/ColorRect/CenterContainer/PasswordContainer/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-text = "Wrong Password"
-horizontal_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Screen/ColorRect"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -55.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="LeaveButton" type="Button" parent="Screen/ColorRect/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-theme = SubResource("Theme_qxhsx")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_qe6mu")
-text = "Leave"
+current_world = "tutorial"
 
 [node name="TrainingRoom" type="Node3D" parent="."]
 
@@ -475,6 +282,10 @@ transform = Transform3D(1, 3.55271e-15, 0, 0, 1, 0, 0, 0, 1, -0.250841, 0.012639
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43739, 3.49329)
 
 [node name="Robot" parent="." instance=ExtResource("23_g0u5e")]
-transform = Transform3D(-0.705006, 0, 0.709202, 0, 1, 0, -0.709202, 0, -0.705006, -3.72296, 0, 3.6732)
+transform = Transform3D(-0.707115, 0.00235579, 0.707095, 0.0031798, 0.999995, -0.000151727, -0.707091, 0.00214112, -0.707119, -3.72296, 0, 3.6732)
+
+[node name="InfoBook" parent="." instance=ExtResource("26_0fagc")]
+transform = Transform3D(0.895999, 0, 0.444057, 0, 1, 0, -0.444057, 0, 0.895999, 3.6245, 0.625884, -2.54976)
+current_world = "tutorial"
 
 [connection signal="body_entered" from="TrainingRoom/Architecture/Area3D" to="TrainingRoom/Architecture/Area3D" method="_on_body_entered"]

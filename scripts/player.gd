@@ -23,7 +23,10 @@ var gravity = 9.8
 @onready var camera = %Pivot/Camera3D
 @onready var ray = %Pivot/Camera3D/RayCast3D
 
+@export var current_world = ""
+
 var can_interact = ""
+var text = ""
 
 func _ready():
     Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -42,8 +45,14 @@ func in_range(collision_body) -> void:
     elif (collision_body is Robot):
         get_tree().call_group("interaction", "player_in_range")
         can_interact = "robot"
+    elif (collision_body is Book):
+        get_tree().call_group("interaction", "player_in_range")
+        can_interact = "book"
+        var book = collision_body as Book
+        text = book.get_book_info()
     else:
         can_interact = ""
+        text = ""
 
 func _physics_process(delta):
     # Add the gravity.
@@ -54,8 +63,7 @@ func _physics_process(delta):
         var c = ray.get_collider()
         in_range(c)
     else:
-        can_interact = false
-        get_tree().call_group("interaction", "hide_hint")
+        can_interact = ""
         get_tree().call_group("interaction", "player_out_range")
 
     
@@ -67,15 +75,18 @@ func _physics_process(delta):
 
     if Input.is_action_just_pressed("interact") and can_interact == "computer":
         get_tree().call_group("interaction", "show_screen")
-        Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-        Engine.time_scale = 0
 
     if Input.is_action_just_pressed("interact") and can_interact == "robot":
-        get_tree().call_group("interaction", "show_hint", "tutorial")
+        get_tree().call_group("interaction", "get_hint", current_world)
+
+    if Input.is_action_just_pressed("interact") and can_interact == "book":
+        get_tree().call_group("interaction", "show_info_screen", text)
 
     if Input.is_action_pressed("ui_cancel"):
-        # get_tree().call_group("interaction", "hide_screen")
-        get_tree().quit()
+        get_tree().call_group("interaction", "hide_screen")
+        get_tree().call_group("interaction", "hide_info_screen")
+        get_tree().call_group("interaction", "hide_hint")
+        # get_tree().quit()
 
     # Get the input direction and handle the movement/deceleration.
     var input_dir = Input.get_vector("left", "right", "up", "down")
