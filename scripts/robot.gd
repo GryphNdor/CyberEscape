@@ -10,8 +10,8 @@ var tutorial_hints = [
 
 var world1_hints = [
     "Believe in Purself... hm that seems suspect",
-    "You seem to have the street smarts, but I am more of a book smarts guy myself",
-    "Maybe the books and pictures are related to the password?",
+    "There sure seem to be a lot of cats, I wonder where they are looking at",
+    "With good hashes you get out, exactly what you put in (yes even the same length!)",
 ]
 
 var index = 0

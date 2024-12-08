@@ -68,7 +68,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 40
 placeholder_text = "Password"
-max_length = 4
 expand_to_text_length = true
 
 [node name="SubmitButton" type="Button" parent="ColorRect/CenterContainer/PasswordContainer/MarginContainer/VBoxContainer/VBoxContainer"]

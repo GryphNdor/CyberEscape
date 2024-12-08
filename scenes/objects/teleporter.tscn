@@ -14,12 +14,14 @@ radius = 1.32377
 
 [node name="Teleporter" type="CSGBox3D"]
 material_override = SubResource("StandardMaterial3D_ca2pd")
+cast_shadow = 0
 use_collision = true
 size = Vector3(1, 2.91986, 1.68835)
 script = ExtResource("1_k31dt")
 
 [node name="Sprite3D2" type="Sprite3D" parent="."]
 transform = Transform3D(-2.52909e-08, 0, 0.526389, 0, 0.996296, 0, -0.578589, 0, -2.30091e-08, 0.502584, 0.873224, -0.253039)
+cast_shadow = 0
 texture = SubResource("ViewportTexture_a7en3")
 
 [node name="SubViewport2" type="SubViewport" parent="."]
