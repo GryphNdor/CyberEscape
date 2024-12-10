@@ -1,6 +1,6 @@
 extends Button
 
-@export_file var level_path
+@export var level_path: PackedScene
 
 var tween := create_tween()
 var original_size := size
@@ -17,4 +17,4 @@ func grow_size_tween(end_size: Vector2, duration: float) -> void:
 func _on_button_pressed():
 	if level_path == null:
 		return
-	get_tree().change_scene_to_file(level_path)
+	get_tree().change_scene_to_packed(level_path)

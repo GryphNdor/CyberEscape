@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfyulf5q2hbu2"
 path.s3tc="res://.godot/imported/cat_Cube_color.png-96d27b4bed6b761a90a8df8e446370a8.s3tc.ctex"
+path.etc2="res://.godot/imported/cat_Cube_color.png-96d27b4bed6b761a90a8df8e446370a8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/cat_Cube_color.png"
-dest_files=["res://.godot/imported/cat_Cube_color.png-96d27b4bed6b761a90a8df8e446370a8.s3tc.ctex"]
+dest_files=["res://.godot/imported/cat_Cube_color.png-96d27b4bed6b761a90a8df8e446370a8.s3tc.ctex", "res://.godot/imported/cat_Cube_color.png-96d27b4bed6b761a90a8df8e446370a8.etc2.ctex"]
 
 [params]
 

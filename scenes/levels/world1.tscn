@@ -958,6 +958,7 @@ material = SubResource("StandardMaterial3D_1dh01")
 
 [node name="Wall" type="CSGMesh3D" parent="Architecture"]
 transform = Transform3D(-7.14704e-08, -1, 0, 1.63505, -4.37114e-08, 0, 0, 0, 1.02937, 3.38197, 1.04119e-07, 0)
+visible = false
 use_collision = true
 mesh = SubResource("PlaneMesh_jytmm")
 
@@ -968,26 +969,31 @@ mesh = SubResource("PlaneMesh_djjyb")
 
 [node name="Wall2" type="CSGMesh3D" parent="Architecture"]
 transform = Transform3D(7.03523e-08, 2.555, -3.07812e-07, 1.60947, -1.11683e-07, 6.90687e-22, -1.06229e-14, -3.85795e-07, -2.03854, -3.39221, -8.05967e-07, 0.99511)
+visible = false
 use_collision = true
 mesh = SubResource("PlaneMesh_jytmm")
 
 [node name="Wall3" type="CSGMesh3D" parent="Architecture"]
 transform = Transform3D(-7.03523e-08, -2.555, 0, 1.60947, -1.11683e-07, 0, 0, 0, 1.00876, -0.85565, -6.95139e-07, 2.00511)
+visible = false
 use_collision = true
 mesh = SubResource("PlaneMesh_jytmm")
 
 [node name="Wall4" type="CSGMesh3D" parent="Architecture"]
 transform = Transform3D(3.07453e-15, 1.11658e-07, 3.46007, 1.60912, -1.11658e-07, 5.8616e-22, 7.03368e-08, 2.55444, -1.51244e-07, 0.000543785, -9.10647e-07, -1.00119)
+visible = false
 use_collision = true
 mesh = SubResource("PlaneMesh_jytmm")
 
 [node name="Wall7" type="CSGMesh3D" parent="Architecture"]
 transform = Transform3D(3.0732e-15, 1.1161e-07, -2.28244, 1.60843, -1.1161e-07, 0, -7.03066e-08, -2.55334, -9.97685e-08, 1.39492, 0.00835687, 0.989966)
+visible = false
 use_collision = true
 mesh = SubResource("PlaneMesh_jytmm")
 
 [node name="Wall5" type="CSGMesh3D" parent="Architecture"]
 transform = Transform3D(7.02819e-08, -0.00169334, -1.34615, 1.60786, 7.40004e-11, 5.88422e-08, -1.13951e-14, -2.55245, 0.000893063, -2.14027, 0.0039916, 2.9617)
+visible = false
 use_collision = true
 mesh = SubResource("PlaneMesh_jytmm")
 
@@ -1015,6 +1021,30 @@ next_world = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Architecture/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.10263, 0.981689, 0.109955)
 shape = SubResource("BoxShape3D_jpapf")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Architecture"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0368805, 0.732666, -0.0088501)
+use_collision = true
+size = Vector3(6.84201, 1.771, 2.01746)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Architecture/CSGBox3D2"]
+operation = 2
+size = Vector3(6.8, 10, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Architecture/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14745, 0.166153, 1.09715)
+operation = 2
+size = Vector3(2.47253, 2.06146, 2.61865)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -10.7254, 3.68454, 10.0351)
+use_collision = true
+size = Vector3(2.56706, 1.74567, 2.03796)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0301514, 0, -0.19043)
+operation = 2
+size = Vector3(2.47144, 10, 2.27734)
 
 [node name="Player" parent="." instance=ExtResource("2_b6ong")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.850139, 0.989763, 0.0454119)

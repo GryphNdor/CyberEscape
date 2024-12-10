@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgo3hycj31n24"
 path.s3tc="res://.godot/imported/dark_wood_diff_4k.jpg-82a16f9eb13f6c2ad82801473677f8a7.s3tc.ctex"
+path.etc2="res://.godot/imported/dark_wood_diff_4k.jpg-82a16f9eb13f6c2ad82801473677f8a7.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://resources/dark_wood_diff_4k.jpg"
-dest_files=["res://.godot/imported/dark_wood_diff_4k.jpg-82a16f9eb13f6c2ad82801473677f8a7.s3tc.ctex"]
+dest_files=["res://.godot/imported/dark_wood_diff_4k.jpg-82a16f9eb13f6c2ad82801473677f8a7.s3tc.ctex", "res://.godot/imported/dark_wood_diff_4k.jpg-82a16f9eb13f6c2ad82801473677f8a7.etc2.ctex"]
 
 [params]
 

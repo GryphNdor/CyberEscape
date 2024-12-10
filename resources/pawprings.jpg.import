@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8erkty4mld11"
 path.s3tc="res://.godot/imported/pawprings.jpg-26d01376c52281b9df8542fe10515962.s3tc.ctex"
+path.etc2="res://.godot/imported/pawprings.jpg-26d01376c52281b9df8542fe10515962.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://resources/pawprings.jpg"
-dest_files=["res://.godot/imported/pawprings.jpg-26d01376c52281b9df8542fe10515962.s3tc.ctex"]
+dest_files=["res://.godot/imported/pawprings.jpg-26d01376c52281b9df8542fe10515962.s3tc.ctex", "res://.godot/imported/pawprings.jpg-26d01376c52281b9df8542fe10515962.etc2.ctex"]
 
 [params]
 

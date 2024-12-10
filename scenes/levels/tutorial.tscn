@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://b1prsnj01d756"]
+[gd_scene load_steps=38 format=4 uid="uid://b1prsnj01d756"]
 
 [ext_resource type="PackedScene" uid="uid://d0e1m85vkryn" path="res://scenes/player.tscn" id="1_yd3hp"]
 [ext_resource type="PackedScene" uid="uid://cwc4xcgofuf05" path="res://scenes/hud.tscn" id="2_6kcrw"]
@@ -26,18 +26,6 @@
 [ext_resource type="PackedScene" uid="uid://5k7ssow8gux8" path="res://scenes/robot.tscn" id="23_g0u5e"]
 [ext_resource type="PackedScene" uid="uid://4k8s4mh6qgug" path="res://scenes/objects/info_book.tscn" id="26_0fagc"]
 
-[sub_resource type="GDScript" id="GDScript_sb70s"]
-script/source = "extends Node3D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-    add_to_group(\"interaction\")
-
-func next_world():
-    get_tree().change_scene_to_file(\"res://scenes/levels/world1.tscn\")
-"
-
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4rjyt"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -50,11 +38,11 @@ background_mode = 2
 sky = SubResource("Sky_10yap")
 tonemap_mode = 2
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_axt4f"]
-viewport_path = NodePath("TrainingRoom/Sprite3D/SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_x04jm"]
+viewport_path = NodePath("SubViewport3")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7w8in"]
-viewport_path = NodePath("TrainingRoom/Sprite3D2/SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_u6huu"]
+viewport_path = NodePath("SubViewport2")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8g5nu"]
 resource_name = "furniture_texture"
@@ -106,7 +94,6 @@ size = Vector3(1, 2.96338, 2.11432)
 viewport_path = NodePath("SubViewport")
 
 [node name="World" type="Node3D"]
-script = SubResource("GDScript_sb70s")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -127,37 +114,37 @@ unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.2913, 0)
 current_world = "tutorial"
 
-[node name="TrainingRoom" type="Node3D" parent="."]
-
-[node name="Sprite3D" type="Sprite3D" parent="TrainingRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36302, 2.72368, -4.84861)
-texture_filter = 1
-texture = SubResource("ViewportTexture_axt4f")
-
-[node name="SubViewport" type="SubViewport" parent="TrainingRoom/Sprite3D"]
+[node name="SubViewport2" type="SubViewport" parent="."]
 transparent_bg = true
 size = Vector2i(162, 72)
 
-[node name="Label" type="Label" parent="TrainingRoom/Sprite3D/SubViewport"]
+[node name="Label" type="Label" parent="SubViewport2"]
 offset_right = 143.0
 offset_bottom = 88.0
 theme_override_font_sizes/font_size = 64
 text = "R Y B"
 
-[node name="Sprite3D2" type="Sprite3D" parent="TrainingRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.031257, 2.72368, -4.81524)
-texture_filter = 1
-texture = SubResource("ViewportTexture_7w8in")
-
-[node name="SubViewport" type="SubViewport" parent="TrainingRoom/Sprite3D2"]
+[node name="SubViewport3" type="SubViewport" parent="."]
 transparent_bg = true
 size = Vector2i(64, 72)
 
-[node name="Label" type="Label" parent="TrainingRoom/Sprite3D2/SubViewport"]
+[node name="Label" type="Label" parent="SubViewport3"]
 offset_right = 143.0
 offset_bottom = 88.0
 theme_override_font_sizes/font_size = 64
 text = "R"
+
+[node name="TrainingRoom" type="Node3D" parent="."]
+
+[node name="Sprite3D2" type="Sprite3D" parent="TrainingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.031257, 2.72368, -4.81524)
+texture_filter = 1
+texture = SubResource("ViewportTexture_x04jm")
+
+[node name="Sprite3D" type="Sprite3D" parent="TrainingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36302, 2.72368, -4.84861)
+texture_filter = 1
+texture = SubResource("ViewportTexture_u6huu")
 
 [node name="rug_rectangle_stripes_B2" parent="TrainingRoom" instance=ExtResource("3_t0qbv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1141, -0.0893455, 0.00380301)

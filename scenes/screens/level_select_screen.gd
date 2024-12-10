@@ -1,35 +1,29 @@
 extends Control
 
-const LEVEL_BTN = preload("res://scenes/screens/lvl_btn.tscn")
-@export_dir var dir_path
+const TUTORIAL = "res://scenes/levels/tutorial.tscn"
+const WORLD_1 = "res://scenes/levels/world1.tscn"
+const WORLD_2 = "res://scenes/levels/world2.tscn"
+const WORLD_3 = "res://scenes/levels/world3.tscn"
 
-@onready var grid = $MarginContainer/VBoxContainer/GridContainer
+@onready var button1 = %Button
+@onready var button2 = %Button2
+@onready var button3 = %Button3
+@onready var button4 = %Button4
 
 func _ready() -> void:
-	get_levels(dir_path)
+  button1.pressed.connect(self._goto_tutorial)
+  button2.pressed.connect(self._goto_world_one)
+  button3.pressed.connect(self._goto_world_two)
+  button4.pressed.connect(self._goto_world_three)
 
-func get_levels(path) -> void:
-	var dir = DirAccess.open(path)
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		var file_names = []
-		while file_name != "":
-			file_names.push_front(file_name)
-			file_name = dir.get_next()
-		dir.list_dir_end()
+func _goto_tutorial():
+  get_tree().change_scene_to_file(TUTORIAL)
 
-		file_names.sort()
-		
-		for file in file_names:
-			print(file)
-			create_level_btn('%s/%s' % [dir.get_current_dir(), file], file)
-	else:
-		print("An error occurred when trying to access the path.")
-		
-		
-func create_level_btn(lvl_path, lvl_name) -> void:
-	var btn = LEVEL_BTN.instantiate()
-	btn.text = lvl_name.trim_suffix('.tscn').replace("_", " ")
-	btn.level_path = lvl_path
-	grid.add_child(btn)
+func _goto_world_one():
+  get_tree().change_scene_to_file(WORLD_1)
+
+func _goto_world_two():
+  get_tree().change_scene_to_file(WORLD_2)
+
+func _goto_world_three():
+  get_tree().change_scene_to_file(WORLD_3)
