@@ -14,6 +14,13 @@ var world1_hints = [
 	"With good hashes you get out, exactly what you put in (yes even the same length!)",
 ]
 
+var world3_hints = [
+	"Who is that person on the poster? Looks like a pretty commanding guy.",
+	"That guy on the poster seems like he could be the type of guy to have his own secret code.",
+	"If the room really is broken, maybe you can access places you shouldn't.",
+	"The admin has some interesting posters in his room."
+]
+
 var index = 0
 
 func _ready() -> void:
@@ -26,6 +33,8 @@ func get_hint(room: String):
 			text = tutorial_hints[index]
 		"world1":
 			text = world1_hints[index]
+		"world3":
+			text = world3_hints[index]
 	index = (index + 1) % 3
 	get_tree().call_group("interaction", "show_hint", text)
 	print(room)

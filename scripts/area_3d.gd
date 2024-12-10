@@ -24,4 +24,4 @@ func open_door():
  
 func _on_body_entered(_body: Node3D) -> void:
 	if is_open:
-		get_tree().change_scene_to_file(worlds[next_world])
+		get_tree().change_scene_to_file.call_deferred(worlds[next_world])

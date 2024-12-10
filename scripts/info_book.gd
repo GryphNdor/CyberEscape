@@ -36,7 +36,6 @@ var world1_info = [
 		[b]https://www.iwm.org.uk/history/how-alan-turing-cracked-the-enigma-code[/b]
 		[b]https://www.mub.eps.manchester.ac.uk/science-engineering/2018/11/28/cracking-stuff-how-turing-beat-the-enigma/[/b]
 	[i]I don't like Never Eat Soggy Waffles, I prefer Never Wear Shoes Ever. I think the cats agree with me. NWSE[/i]
-	[i] 
 	""",
 	"""
 	An interesting use of hashing is in the form of the blockchain! The blockchain is cleverly uses hashes to build what is known as the public ledger. Since hashes are famous for being one directional, transactions are on the blockchain not-reversible but are also highly secure.
@@ -45,6 +44,26 @@ var world1_info = [
 
 	[i]This is a hash of kitten, what hash is it?[/i]
 	[i]d83b8a52c5866bc04c7039d847766df62ceb2510ea4c8f0db57b25a35b02d82f7270628c174d5a493a4363da713c32cae0e7091a98a9ce956aeb0b49cdb01248[/i]
+	"""
+]
+
+var world3_info = [
+	"""
+	Welcome to World 3. 
+	The focus of this room is OWASP vulnerabiltiies. OWASP is a nonprofit foundation that works to improve software security. The vulnerabilites we look at are in the OWASP Top Ten list which shows the Top 10 Web Application Security Risks. This list is updated frequently with data collected from people all over the world, and these security risks will be something you will have to deal with at a cybersecurity job. Remember, this world builds upon previous knowledge gained from the other worlds, so try to remember what you did in the other worlds. We also look at one other method of trying to get information from victims.
+	[i]password = 1, 3[/i]
+	""",
+	"""
+	To recap on our previous lessons, I want to go back to encryption. Encryption has been around for a long time, and it is important to understand the beginning of cryptography. 
+	[i]Paying attention to the past info books is key here![/i]
+	""",
+	"""
+	Broken Access Control is a vulnerability that happens when the application doesn't properly enforce authorization and authentication. This means that users will have access to information that they usually would not have access to. For example, if a user account suddenly gains admin privileges, so they can now see the usernames and passwords of every user account on the application, that means the website has broken access control. This is listed as the number 1 biggest security risk on the OWASP Top Ten. Ways to prevent broken access control include proper limits for different types of accounts along with making sure that users can't gain access to admin privilegs by default.
+	[i]Sure hope this room isn't broken[/i]
+	""",
+	"""
+	Security doesn't only involve preventing vulnerabilities. Social engineering is maniuplating people into lowering their guard and making them leak confidential and sensitive information. This can be especially dangeous because the targets won't realize what information they have given up until it is too late. Ways to prevent this is awareness of these types of attacks, multi-factor authentication, and constant password management.
+	[i]The admin has such an interesting room, I wonder what his interests are[/i]
 	"""
 ]
 
@@ -59,5 +78,7 @@ func get_book_info() -> String:
 			return tutorial_info[book_number]
 		"world1":
 			return world1_info[book_number]
+		"world3":
+			return world3_info[book_number]
 		_:
 			return ""

@@ -26,6 +26,8 @@ func show_screen():
 			password_input.max_length = 4
 		"world1":
 			password_input.max_length = 20
+		"world3":
+			password_input.max_length = 21
 
 func hide_screen():
 	visible = false
@@ -43,6 +45,13 @@ func _submit_password():
 				error.visible = true
 		"world1":
 			if password_input.get_text().to_lower() == "sardine1302sha2":
+				password_container.visible = false
+				get_tree().call_group("interaction", "open_door")
+				hide_screen()
+			else:
+				error.visible = true
+		"world3":
+			if password_input.get_text().to_lower() == "caesar'sshiftbaseball":
 				password_container.visible = false
 				get_tree().call_group("interaction", "open_door")
 				hide_screen()
