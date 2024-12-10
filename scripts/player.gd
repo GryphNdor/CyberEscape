@@ -41,13 +41,15 @@ func _unhandled_input(event):
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 
 func in_range(collision_body) -> void:
-	# print(collision_body)
 	if (collision_body is Computer):
 		get_tree().call_group("interaction", "player_in_range")
 		can_interact = "computer"
 	elif (collision_body is Robot):
 		get_tree().call_group("interaction", "player_in_range")
 		can_interact = "robot"
+	elif (collision_body is Terminal):
+		get_tree().call_group("interaction", "player_in_range")
+		can_interact = "terminal"
 	elif (collision_body is Book):
 		get_tree().call_group("interaction", "player_in_range")
 		can_interact = "book"
@@ -94,10 +96,14 @@ func _physics_process(delta):
 		get_tree().call_group("interaction", "show_info_screen", text)
 
 	if Input.is_action_just_pressed("interact") and can_interact == "teleporter":
-		position = teleport_position
+		global_position = teleport_position
+
+	if Input.is_action_just_pressed("interact") and can_interact == "terminal":
+		get_tree().call_group("interaction", "show_terminal")
 
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().call_group("interaction", "hide_screen")
+		get_tree().call_group("interaction", "hide_terminal")
 		get_tree().call_group("interaction", "hide_info_screen")
 		get_tree().call_group("interaction", "hide_hint")
 		# get_tree().quit()

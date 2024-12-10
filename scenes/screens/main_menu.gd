@@ -7,6 +7,7 @@ extends Control
 
 func _ready():
 	# AudioPlayer.play_level_music()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	start_button.button_down.connect(on_start_pressed)
 	exit_button.button_down.connect(on_exit_pressed)
 

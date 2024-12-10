@@ -42,7 +42,6 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_u5hjh")
 
 [node name="cabinet_medium_decorated2" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.24568, 0, 0)
 
 [node name="cabinet_medium_decorated" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_ounta")

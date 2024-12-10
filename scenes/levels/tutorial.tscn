@@ -297,20 +297,21 @@ flip_h = true
 texture = SubResource("ViewportTexture_b5hss")
 
 [node name="SubViewport" type="SubViewport" parent="."]
-size = Vector2i(512, 300)
+size = Vector2i(512, 370)
 
-[node name="Basics" type="PanelContainer" parent="SubViewport"]
+[node name="Basics2" type="PanelContainer" parent="SubViewport"]
 unique_name_in_owner = true
-offset_right = 512.0
-offset_bottom = 312.0
+offset_right = 584.0
+offset_bottom = 368.0
 
-[node name="Label" type="RichTextLabel" parent="SubViewport/Basics"]
+[node name="Label" type="RichTextLabel" parent="SubViewport/Basics2"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 36
 theme_override_font_sizes/bold_font_size = 36
 bbcode_enabled = true
 text = "Basic Controls:
 - Use WASD to move
+- Use Shift to sprint
 - Use (E) to interact with interactable objects
 [b]Make the door turn green to escape[/b]"
 

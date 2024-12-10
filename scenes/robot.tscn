@@ -4644,7 +4644,6 @@ _data = {
 height = 1.89814
 
 [node name="Robot" type="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_1lydw")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]

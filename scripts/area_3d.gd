@@ -7,6 +7,8 @@ var is_open = false
 var worlds = [
 	"res://scenes/levels/world1.tscn",
 	"res://scenes/levels/world2.tscn",
+	"res://scenes/levels/world3.tscn",
+	"res://scenes/screens/main_menu.tscn",
 ]
 
 # Called when the node enters the scene tree for the first time.

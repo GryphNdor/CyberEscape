@@ -50,8 +50,6 @@ size = Vector3(0.510864, 0.267426, 0.317627)
 
 [node name="InfoBook" type="StaticBody3D"]
 script = ExtResource("1_aamup")
-current_world = null
-book_number = null
 
 [node name="book_single2" type="Node3D" parent="."]
 

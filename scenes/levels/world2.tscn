@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dv26y15xlmwky"]
+[gd_scene load_steps=46 format=3 uid="uid://dv26y15xlmwky"]
 
 [ext_resource type="PackedScene" uid="uid://d0e1m85vkryn" path="res://scenes/player.tscn" id="1_732vs"]
 [ext_resource type="PackedScene" uid="uid://cwc4xcgofuf05" path="res://scenes/hud.tscn" id="1_vxdxg"]
@@ -6,12 +6,91 @@
 [ext_resource type="PackedScene" uid="uid://bo13um322tmri" path="res://scenes/screen.tscn" id="2_y4fu3"]
 [ext_resource type="PackedScene" uid="uid://okndy25c5x13" path="res://scenes/info_screen.tscn" id="3_wr777"]
 [ext_resource type="PackedScene" uid="uid://bwc3byku0a8yh" path="res://scenes/computer.tscn" id="3_x4pok"]
+[ext_resource type="PackedScene" uid="uid://cacqsl0nwc7bs" path="res://scenes/terminal.tscn" id="4_34o8t"]
+[ext_resource type="PackedScene" uid="uid://bpn2gqr3k6ycr" path="res://scenes/dynamic_hitbox.tscn" id="6_juowv"]
 [ext_resource type="PackedScene" uid="uid://dtsuhu8vk60xb" path="res://scenes/objects/teleporter.tscn" id="7_v87ig"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_xfull"]
+[ext_resource type="PackedScene" uid="uid://4k8s4mh6qgug" path="res://scenes/objects/info_book.tscn" id="8_nyg3m"]
+[ext_resource type="PackedScene" uid="uid://cf5081qg3ynoy" path="res://scenes/objects/table_medium_2.tscn" id="8_toln0"]
+[ext_resource type="PackedScene" uid="uid://5k7ssow8gux8" path="res://scenes/robot.tscn" id="8_yxlt3"]
+[ext_resource type="PackedScene" uid="uid://crrgyw4pg5406" path="res://scenes/objects/cabinet.tscn" id="9_x88th"]
+[ext_resource type="PackedScene" uid="uid://deslei4n8o7iy" path="res://scenes/static_hitbox.tscn" id="10_3ima0"]
+[ext_resource type="Script" path="res://scripts/terminal.gd" id="13_0tjpv"]
+[ext_resource type="Texture2D" uid="uid://chh25j32ss1yx" path="res://assets/dog.png" id="13_iv2bn"]
+[ext_resource type="Script" path="res://scripts/removable_wall.gd" id="14_tv8i8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t5k42"]
 size = Vector3(1, 2.96338, 2.11432)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_sjbm7"]
+viewport_path = NodePath("Mini2/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_w8isr"]
+viewport_path = NodePath("Mini3/SubViewport3")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_20mt2"]
+viewport_path = NodePath("Mini3/SubViewport2")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_cwj6q"]
+viewport_path = NodePath("Mini3/FwdBob")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_022xk"]
+viewport_path = NodePath("Mini4/SubViewport5")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3ayi6"]
+viewport_path = NodePath("Mini5/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tj0vt"]
+viewport_path = NodePath("Mini5/SubViewport4")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_j8qd5"]
+viewport_path = NodePath("Mini5/SubViewport2")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7ci1r"]
+viewport_path = NodePath("Mini6/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_f0u1e"]
+viewport_path = NodePath("Mini8/FwdAlice")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_t12uu"]
+viewport_path = NodePath("Mini8/SubViewport5")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mel8m"]
+viewport_path = NodePath("Mini16/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wv2q0"]
+viewport_path = NodePath("Mini9/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2m4kn"]
+viewport_path = NodePath("Mini11/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8i4vo"]
+viewport_path = NodePath("Mini11/SubViewport2")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lk5vq"]
+viewport_path = NodePath("Mini11/SubViewport3")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8jppc"]
+viewport_path = NodePath("Mini18/SubViewport4")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fv1sq"]
+viewport_path = NodePath("Mini18/SubViewport5")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6cdbb"]
+viewport_path = NodePath("Mini12/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_q2nxb"]
+viewport_path = NodePath("Mini12/SubViewport2")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_c7jpb"]
+viewport_path = NodePath("Mini14/SubViewport2")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8a4is"]
+viewport_path = NodePath("Mini20/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7dsgo"]
+viewport_path = NodePath("Mini13/SubViewport")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xfull"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o0wyv"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -30,28 +109,747 @@ tonemap_mode = 2
 [node name="HUD" parent="." instance=ExtResource("1_vxdxg")]
 
 [node name="Screen" parent="." instance=ExtResource("2_y4fu3")]
-current_world = "world1"
+current_world = "world2"
 
 [node name="InfoScreen" parent="." instance=ExtResource("3_wr777")]
 mouse_filter = 0
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="Terminal" parent="." instance=ExtResource("4_34o8t")]
+visible = false
+
+[node name="Mini1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.44, 0, 32.5074)
+
+[node name="Teleporter" parent="Mini1" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-0.0226702, 0, 0.999743, 0, 1, 0, -0.999743, 0, -0.0226702, 6.23168, 1.48327, 7.27834)
+linked_teleporter = NodePath("../../Mini2/Teleporter3")
+
+[node name="InfoBook" parent="Mini1" instance=ExtResource("8_nyg3m")]
+transform = Transform3D(-0.999914, 0, 0.0131071, 0, 1, 0, -0.0131071, 0, -0.999914, 3.72741, 0, 3.80489)
+current_world = "world2"
+
+[node name="Computer" parent="Mini1" groups=["interaction"] instance=ExtResource("3_x4pok")]
+transform = Transform3D(0.728622, 0, -0.684915, 0, 1, 0, 0.684915, 0, 0.728622, 1.8458, 0.46551, 6.59596)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0352, 2.02461, 4.05733)
 use_collision = true
 size = Vector3(8, 5, 8)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini1/CSGBox3D"]
 operation = 2
 size = Vector3(7, 5, 7)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+[node name="Door" type="CSGBox3D" parent="Mini1"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13749, 1.55843, 3.77733)
+use_collision = true
+size = Vector3(0.20166, 3.03113, 2.04575)
+
+[node name="Area3D" type="Area3D" parent="Mini1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.137872, 1.35532, 3.77218)
+script = ExtResource("2_h0hnm")
+next_world = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mini1/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46056, 0.231476, 0.109955)
+shape = SubResource("BoxShape3D_t5k42")
+
+[node name="Mini2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2874, 0, 44.7761)
+
+[node name="Sprite3D" type="Sprite3D" parent="Mini2"]
+transform = Transform3D(0.0580867, 0, 0.998312, 0, 1, 0, -0.998312, 0, 0.0580867, 2.10881, 0.91018, -25.6812)
+billboard = 1
+texture = SubResource("ViewportTexture_sjbm7")
+
+[node name="SubViewport" type="SubViewport" parent="Mini2"]
+transparent_bg = true
+size = Vector2i(170, 30)
+
+[node name="Label" type="Label" parent="Mini2/SubViewport"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Alice: Hey is this Bob?"
+
+[node name="InfoBook" parent="Mini2" instance=ExtResource("8_nyg3m")]
+transform = Transform3D(0.755648, 0, -0.654978, 0, 1, 0, 0.654978, 0, 0.755648, 5.87333, 1.12852, -25.8206)
+current_world = "world2"
+book_number = 1
+
+[node name="Robot" parent="Mini2" instance=ExtResource("8_yxlt3")]
+transform = Transform3D(0.634865, 0, 0.772623, 0, 1, 0, -0.772623, 0, 0.634865, 1.73005, 0, -29.1395)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Mini2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0352, 2.02461, -25.7825)
 use_collision = true
-size = Vector3(19, 5, 8)
+size = Vector3(8, 5, 10)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D2"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini2/CSGBox3D2"]
 operation = 2
-size = Vector3(18, 5, 7)
+size = Vector3(7, 5, 9)
+
+[node name="table_medium2" parent="Mini2" instance=ExtResource("8_toln0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2573, 0, -26.3244)
+
+[node name="StaticHitbox" parent="Mini2/table_medium2" node_paths=PackedStringArray("item") instance=ExtResource("10_3ima0")]
+item = NodePath("..")
+
+[node name="table" parent="Mini2" instance=ExtResource("6_juowv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2573, 0, -26.3244)
+script = null
+
+[node name="cabinet" parent="Mini2" instance=ExtResource("6_juowv")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.77373, 0, -21.3772)
+item = ExtResource("9_x88th")
+weight = 4
+
+[node name="cabinet_medium_decorated2" parent="Mini2/cabinet" instance=ExtResource("9_x88th")]
+visible = false
+
+[node name="Teleporter2" parent="Mini2" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10194, 1.56947, -25.5774)
+linked_teleporter = NodePath("../../Mini3/Teleporter6")
+
+[node name="Teleporter3" parent="Mini2" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.31321, 1.56947, -29.9007)
+linked_teleporter = NodePath("../../Mini1/Teleporter")
+
+[node name="Mini3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1572, 0, 16.0215)
+
+[node name="Teleporter6" parent="Mini3" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.94149, 1.63404, 4.77864)
+linked_teleporter = NodePath("../../Mini2/Teleporter2")
+
+[node name="Teleporter7" parent="Mini3" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.588786, 1.63404, 3.77864)
+linked_teleporter = NodePath("../../Mini5/Teleporter6")
+
+[node name="Teleporter8" parent="Mini3" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.94149, 1.63404, 7.2567)
+linked_teleporter = NodePath("../../Mini4/Teleporter6")
+
+[node name="Teleporter9" parent="Mini3" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.94149, 1.63404, 0.559624)
+linked_teleporter = NodePath("../../Mini8/Teleporter6")
+
+[node name="InfoBook3" parent="Mini3" instance=ExtResource("8_nyg3m")]
+transform = Transform3D(-0.73284, 0, -0.680401, 0, 1, 0, 0.680401, 0, -0.73284, 2.31936, 0, 15.2013)
+current_world = "world2"
+book_number = 2
+
+[node name="InfoBook2" parent="Mini3" instance=ExtResource("8_nyg3m")]
+transform = Transform3D(-0.653341, 0, 0.757063, 0, 1, 0, -0.757063, 0, -0.653341, -8.94861, 0, -7.08859)
+current_world = "world2"
+book_number = 3
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0352, 2.02461, 4.05733)
+use_collision = true
+size = Vector3(8, 5, 8)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini3/CSGBox3D"]
+operation = 2
+size = Vector3(7, 5, 7)
+
+[node name="Sprite3D2" type="Sprite3D" parent="Mini3"]
+transform = Transform3D(0.0580867, 0, 0.998312, 0, 1, 0, -0.998312, 0, 0.0580867, 0.787125, 3.54762, 3.66313)
+billboard = 1
+texture = SubResource("ViewportTexture_w8isr")
+
+[node name="SubViewport2" type="SubViewport" parent="Mini3"]
+transparent_bg = true
+size = Vector2i(280, 30)
+
+[node name="Label" type="Label" parent="Mini3/SubViewport2"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "You reply to Alice: No, this is Patrick"
+
+[node name="Sprite3D3" type="Sprite3D" parent="Mini3"]
+transform = Transform3D(0.0580867, 0, 0.998312, 0, 1, 0, -0.998312, 0, 0.0580867, 3.03259, 3.58514, 6.97003)
+billboard = 1
+texture = SubResource("ViewportTexture_20mt2")
+
+[node name="SubViewport3" type="SubViewport" parent="Mini3"]
+transparent_bg = true
+size = Vector2i(360, 30)
+
+[node name="Label" type="Label" parent="Mini3/SubViewport3"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "You reply to Alice: Hey Alice, long time no see!"
+
+[node name="Sprite3D4" type="Sprite3D" parent="Mini3"]
+transform = Transform3D(0.0580867, 0, 0.998312, 0, 1, 0, -0.998312, 0, 0.0580867, 4.90991, 3.48392, 0.865007)
+billboard = 1
+texture = SubResource("ViewportTexture_cwj6q")
+
+[node name="Sprite3D5" type="Sprite3D" parent="Mini3"]
+transform = Transform3D(0.0580867, 0, 0.998312, 0, 1, 0, -0.998312, 0, 0.0580867, -6.13143, 3.48392, 1.14443)
+billboard = 1
+texture = SubResource("ViewportTexture_cwj6q")
+
+[node name="FwdBob" type="SubViewport" parent="Mini3"]
+transparent_bg = true
+size = Vector2i(250, 30)
+
+[node name="Label" type="Label" parent="Mini3/FwdBob"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "You forward the message to Bob"
+
+[node name="Sprite3D" type="Sprite3D" parent="Mini3"]
+
+[node name="Mini4" type="Node3D" parent="."]
+transform = Transform3D(-0.000820323, 0, 1, 0, 1, 0, -1, 0, -0.000820323, 10.3208, 0, 35.2461)
+
+[node name="Sprite3D5" type="Sprite3D" parent="Mini4"]
+transform = Transform3D(0.998264, 0, -0.0589056, 0, 1, 0, 0.0589056, 0, 0.998264, 2.31622, 0.91018, 3.81498)
+billboard = 1
+texture = SubResource("ViewportTexture_022xk")
+
+[node name="SubViewport5" type="SubViewport" parent="Mini4"]
+transparent_bg = true
+size = Vector2i(215, 30)
+
+[node name="Label" type="Label" parent="Mini4/SubViewport5"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Alice: Oops wrong person!"
+
+[node name="Teleporter6" parent="Mini4" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.94149, 1.63404, 4.77864)
+linked_teleporter = NodePath("../../Mini2/Teleporter2")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0352, 2.02461, 4.05733)
+use_collision = true
+size = Vector3(8, 5, 8)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini4/CSGBox3D"]
+operation = 2
+size = Vector3(7, 5, 7)
+
+[node name="Mini5" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00520802, 0, 16.1715)
+
+[node name="SubViewport4" type="SubViewport" parent="Mini5"]
+transparent_bg = true
+size = Vector2i(500, 30)
+
+[node name="Label" type="Label" parent="Mini5/SubViewport4"]
+offset_right = 550.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "You reply to Alice: New phone! Is your dog still your background?"
+
+[node name="SubViewport" type="SubViewport" parent="Mini5"]
+transparent_bg = true
+size = Vector2i(250, 40)
+
+[node name="Label" type="Label" parent="Mini5/SubViewport"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "Alice: Agreed! New phone btw"
+
+[node name="Teleporter6" parent="Mini5" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.94149, 1.63404, 4.77864)
+linked_teleporter = NodePath("../../Mini3/Teleporter7")
+
+[node name="Teleporter7" parent="Mini5" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07113, 1.63404, 3.87551)
+linked_teleporter = NodePath("../../Mini11/Teleporter6")
+
+[node name="Teleporter8" parent="Mini5" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.51958, 1.63404, 7.10474)
+linked_teleporter = NodePath("../../Mini4/Teleporter6")
+
+[node name="Teleporter9" parent="Mini5" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.96033, 1.63404, 0.928028)
+linked_teleporter = NodePath("../../Mini16/Teleporter6")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0352, 2.02461, 4.05733)
+use_collision = true
+size = Vector3(8, 5, 8)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini5/CSGBox3D"]
+operation = 2
+size = Vector3(7, 5, 7)
+
+[node name="Sprite3D" type="Sprite3D" parent="Mini5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.02038, 0.314254, 3.84234)
+billboard = 1
+texture = SubResource("ViewportTexture_3ayi6")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Mini5"]
+transform = Transform3D(1, 0, 0, 0, 0.986164, 0.165771, 0, -0.165771, 0.986164, 1.16463, 3.89032, 3.85379)
+billboard = 1
+texture = SubResource("ViewportTexture_tj0vt")
+
+[node name="SubViewport2" type="SubViewport" parent="Mini5"]
+transparent_bg = true
+size = Vector2i(330, 30)
+
+[node name="Label" type="Label" parent="Mini5/SubViewport2"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "You reply to Alice: Whats your dog's name?"
+
+[node name="Sprite3D3" type="Sprite3D" parent="Mini5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.43423, 3.58243, 7.33477)
+billboard = 1
+texture = SubResource("ViewportTexture_j8qd5")
+
+[node name="Mini6" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 43, 0, 3)
+
+[node name="Terminal" parent="Mini6" groups=["interaction"] instance=ExtResource("3_x4pok")]
+transform = Transform3D(0.342496, 0, -0.939519, 0, 1, 0, 0.939519, 0, 0.342496, 2.74055, 0.46551, 6.17758)
+script = ExtResource("13_0tjpv")
+
+[node name="Teleporter6" parent="Mini6" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10.2028, 1.63404, 4.77863)
+linked_teleporter = NodePath("../../Mini2/Teleporter2")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0352, 2.02461, 4.05733)
+use_collision = true
+size = Vector3(16, 5, 8)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini6/CSGBox3D"]
+operation = 2
+size = Vector3(15, 5, 7)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Mini6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12305, 1.90828, 4.08576)
+size = Vector3(0.454346, 5.25549, 7.96481)
+script = ExtResource("14_tv8i8")
+
+[node name="Sprite3D" type="Sprite3D" parent="Mini6"]
+transform = Transform3D(-1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, -3.44732, 2.67142, 5.90846)
+texture = ExtResource("13_iv2bn")
+
+[node name="SubViewport" type="SubViewport" parent="Mini6"]
+size = Vector2i(200, 50)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Mini6/SubViewport"]
+offset_right = 184.0
+offset_bottom = 40.0
+text = "LePup"
+
+[node name="Sprite3D2" type="Sprite3D" parent="Mini6"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.40252, 3.02585, 2.75355)
+texture = SubResource("ViewportTexture_7ci1r")
+
+[node name="Mini8" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.9688, 0, 5.26176)
+
+[node name="Teleporter6" parent="Mini8" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.94149, 1.63404, 4.77864)
+linked_teleporter = NodePath("../../Mini3/Teleporter9")
+
+[node name="Teleporter7" parent="Mini8" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7031, 1.63404, 4.21055)
+linked_teleporter = NodePath("../../Mini9/Teleporter6")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0352, 2.02461, 4.05733)
+use_collision = true
+size = Vector3(8, 5, 8)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini8/CSGBox3D"]
+operation = 2
+size = Vector3(7, 5, 7)
+
+[node name="Sprite3D6" type="Sprite3D" parent="Mini8"]
+transform = Transform3D(-0.998312, 0, 0.0580867, 0, 1, 0, -0.0580867, 0, -0.998312, 0.860415, 3.48392, 4.22969)
+billboard = 1
+texture = SubResource("ViewportTexture_f0u1e")
+
+[node name="FwdAlice" type="SubViewport" parent="Mini8"]
+transparent_bg = true
+size = Vector2i(270, 30)
+
+[node name="Label" type="Label" parent="Mini8/FwdAlice"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "You forward the message to Alice"
+
+[node name="SubViewport5" type="SubViewport" parent="Mini8"]
+transparent_bg = true
+size = Vector2i(250, 30)
+
+[node name="Label" type="Label" parent="Mini8/SubViewport5"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Bob: Alice! New phone?"
+
+[node name="Sprite3D5" type="Sprite3D" parent="Mini8"]
+transform = Transform3D(-0.998312, 0, 0.0580867, 0, 1, 0, -0.0580867, 0, -0.998312, 3.77516, 1.36224, 3.95269)
+billboard = 1
+texture = SubResource("ViewportTexture_t12uu")
+
+[node name="Mini16" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.9688, 0, 5.26176)
+
+[node name="Teleporter6" parent="Mini16" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.94149, 1.63404, 4.77864)
+linked_teleporter = NodePath("../../Mini2/Teleporter2")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0352, 2.02461, 4.05733)
+use_collision = true
+size = Vector3(8, 5, 8)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini16/CSGBox3D"]
+operation = 2
+size = Vector3(7, 5, 7)
+
+[node name="Sprite3D" type="Sprite3D" parent="Mini16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70878, 0, 5.33566)
+billboard = 1
+texture = SubResource("ViewportTexture_mel8m")
+
+[node name="SubViewport" type="SubViewport" parent="Mini16"]
+transparent_bg = true
+size = Vector2i(420, 40)
+
+[node name="Label" type="Label" parent="Mini16/SubViewport"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "Bob: Agreed? If this is Alice let's meet up at the library"
+
+[node name="Mini9" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.9688, 0, -4.73824)
+
+[node name="Sprite3D5" type="Sprite3D" parent="Mini9"]
+transform = Transform3D(-0.998312, 0, 0.0580867, 0, 1, 0, -0.0580867, 0, -0.998312, 3.86578, 3.48392, 0.952354)
+billboard = 1
+texture = SubResource("ViewportTexture_cwj6q")
+
+[node name="Teleporter6" parent="Mini9" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.94149, 1.63404, 4.77864)
+linked_teleporter = NodePath("../../Mini8/Teleporter7")
+
+[node name="Teleporter7" parent="Mini9" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.78424, 1.63404, 0.909664)
+linked_teleporter = NodePath("../../Mini13/Teleporter6")
+
+[node name="Sprite3D" type="Sprite3D" parent="Mini9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50358, 2.02461, 3.93605)
+billboard = 1
+texture = SubResource("ViewportTexture_wv2q0")
+
+[node name="SubViewport" type="SubViewport" parent="Mini9"]
+transparent_bg = true
+size = Vector2i(512, 100)
+
+[node name="Label" type="RichTextLabel" parent="Mini9/SubViewport"]
+offset_right = 459.0
+offset_bottom = 96.0
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+text = "Alice: Yep! Say Bob do remember how my dog got fleas, well he got them again.
+Which site did you recommended for a vet appointment?"
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0352, 2.02461, 4.05733)
+use_collision = true
+size = Vector3(8, 5, 8)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini9/CSGBox3D"]
+operation = 2
+size = Vector3(7, 5, 7)
+
+[node name="Mini11" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.0312, 0, 16.2618)
+
+[node name="Teleporter6" parent="Mini11" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 16.105, 1.63404, 4.77864)
+linked_teleporter = NodePath("../../Mini5/Teleporter7")
+
+[node name="Teleporter7" parent="Mini11" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0687, 1.63404, 4.77864)
+linked_teleporter = NodePath("../../Mini18/Teleporter6")
+
+[node name="Teleporter8" parent="Mini11" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13.1741, 1.63404, 0.976358)
+linked_teleporter = NodePath("../../Mini12/Teleporter6")
+
+[node name="Sprite3D" type="Sprite3D" parent="Mini11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2937, 0.726324, 3.75991)
+billboard = 1
+texture = SubResource("ViewportTexture_2m4kn")
+
+[node name="SubViewport" type="SubViewport" parent="Mini11"]
+transparent_bg = true
+size = Vector2i(130, 20)
+
+[node name="Label" type="Label" parent="Mini11/SubViewport"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "Alice: He is! :D"
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1987, 2.02461, 4.05733)
+use_collision = true
+size = Vector3(8, 5, 8)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini11/CSGBox3D"]
+operation = 2
+size = Vector3(7, 5, 7)
+
+[node name="Sprite3D2" type="Sprite3D" parent="Mini11"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.98136, 3.72615, 4.61035)
+texture = SubResource("ViewportTexture_8i4vo")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Mini11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0352, 3.51304, 0.852922)
+texture = SubResource("ViewportTexture_lk5vq")
+
+[node name="SubViewport2" type="SubViewport" parent="Mini11"]
+transparent_bg = true
+size = Vector2i(512, 40)
+
+[node name="Label" type="Label" parent="Mini11/SubViewport2"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "You reply to Alice: Oh awesome, can you send a pic to me through FaceZoom?"
+
+[node name="SubViewport3" type="SubViewport" parent="Mini11"]
+transparent_bg = true
+size = Vector2i(512, 40)
+
+[node name="Label" type="Label" parent="Mini11/SubViewport3"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "You reply to Alice: Hey did you sign up for that service I sent you?"
+
+[node name="Mini18" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.0312, 0, 16.2618)
+
+[node name="Teleporter6" parent="Mini18" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 16.105, 1.63404, 4.77864)
+linked_teleporter = NodePath("../../Mini2/Teleporter2")
+
+[node name="Teleporter7" parent="Mini18" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.5112, 1.63404, 7.45772)
+linked_teleporter = NodePath("../../Mini20/Teleporter6")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1987, 2.02461, 4.05733)
+use_collision = true
+size = Vector3(8, 5, 8)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini18/CSGBox3D"]
+operation = 2
+size = Vector3(7, 5, 7)
+
+[node name="Sprite3D4" type="Sprite3D" parent="Mini18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.196, 1.07079, 3.75991)
+billboard = 1
+texture = SubResource("ViewportTexture_8jppc")
+
+[node name="SubViewport4" type="SubViewport" parent="Mini18"]
+transparent_bg = true
+size = Vector2i(220, 20)
+
+[node name="Label" type="Label" parent="Mini18/SubViewport4"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "Alice: I dont have you added"
+
+[node name="Sprite3D5" type="Sprite3D" parent="Mini18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0583, 3.8965, 6.88876)
+billboard = 1
+texture = SubResource("ViewportTexture_fv1sq")
+
+[node name="SubViewport5" type="SubViewport" parent="Mini18"]
+transparent_bg = true
+size = Vector2i(500, 20)
+
+[node name="Label" type="Label" parent="Mini18/SubViewport5"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "You reply to Alice: I'll add you just send me you username"
+
+[node name="Mini12" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12.0312, 0, 5.26176)
+
+[node name="Teleporter6" parent="Mini12" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.94149, 1.63404, -4.3849)
+linked_teleporter = NodePath("../../Mini11/Teleporter8")
+
+[node name="Teleporter7" parent="Mini12" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.884988, 1.63404, -5.49404)
+linked_teleporter = NodePath("../../Mini14/Teleporter6")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0352, 2.02461, -5.10621)
+use_collision = true
+size = Vector3(8, 5, 8)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini12/CSGBox3D"]
+operation = 2
+size = Vector3(7, 5, 7)
+
+[node name="Sprite3D" type="Sprite3D" parent="Mini12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.617137, 3.64238, -5.37005)
+billboard = 1
+texture = SubResource("ViewportTexture_6cdbb")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Mini12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.80617, 0, -5.53919)
+billboard = 1
+texture = SubResource("ViewportTexture_q2nxb")
+
+[node name="SubViewport" type="SubViewport" parent="Mini12"]
+transparent_bg = true
+size = Vector2i(512, 40)
+
+[node name="Label" type="Label" parent="Mini12/SubViewport"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "You reply to Alice: Yea, I need your password because I lost mine"
+
+[node name="SubViewport2" type="SubViewport" parent="Mini12"]
+transparent_bg = true
+size = Vector2i(300, 40)
+
+[node name="Label" type="Label" parent="Mini12/SubViewport2"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.992157, 0, 0, 1)
+text = "Alice: You mean the vet account?"
+
+[node name="Mini14" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12.0312, 0, -4.73824)
+
+[node name="SubViewport2" type="SubViewport" parent="Mini14"]
+transparent_bg = true
+size = Vector2i(410, 60)
+
+[node name="Label" type="Label" parent="Mini14/SubViewport2"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "Alice: Oh I guess, its puppymama2024"
+
+[node name="Sprite3D2" type="Sprite3D" parent="Mini14"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.37279, 0.771427, -5.566)
+billboard = 1
+texture = SubResource("ViewportTexture_c7jpb")
+
+[node name="Teleporter6" parent="Mini14" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.94149, 1.63404, -4.3849)
+linked_teleporter = NodePath("../../Mini2/Teleporter2")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0352, 2.02461, -5.10621)
+use_collision = true
+size = Vector3(8, 5, 8)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini14/CSGBox3D"]
+operation = 2
+size = Vector3(7, 5, 7)
+
+[node name="Mini20" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30.0312, 0, 34.7675)
+
+[node name="SubViewport" type="SubViewport" parent="Mini20"]
+transparent_bg = true
+size = Vector2i(410, 60)
+
+[node name="Label" type="Label" parent="Mini20/SubViewport"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "Alice: Oh yea you'll like my username, PuppyLover12
+I use it everywhere!"
+
+[node name="Sprite3D" type="Sprite3D" parent="Mini20"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.60748, 0.771427, 12.69)
+billboard = 1
+texture = SubResource("ViewportTexture_8a4is")
+
+[node name="Teleporter6" parent="Mini20" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.94149, 1.63404, 13.9422)
+linked_teleporter = NodePath("../../Mini2/Teleporter2")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0352, 2.02461, 13.2209)
+use_collision = true
+size = Vector3(8, 5, 8)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini20/CSGBox3D"]
+operation = 2
+size = Vector3(7, 5, 7)
+
+[node name="Mini13" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 28.9688, 0, 3.26176)
+
+[node name="SubViewport" type="SubViewport" parent="Mini13"]
+transparent_bg = true
+size = Vector2i(400, 60)
+
+[node name="Label" type="RichTextLabel" parent="Mini13/SubViewport"]
+offset_right = 359.0
+offset_bottom = 52.0
+theme_override_colors/default_color = Color(0, 0.976471, 0, 1)
+text = "Bob: Yea here's the link just login with your username and password"
+
+[node name="Sprite3D" type="Sprite3D" parent="Mini13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0352, 0.777861, 4.05733)
+billboard = 1
+texture = SubResource("ViewportTexture_7dsgo")
+
+[node name="Sprite3D7" type="Sprite3D" parent="Mini13"]
+transform = Transform3D(-0.0580868, 0, -0.998312, 0, 1, 0, 0.998312, 0, -0.0580868, 1.27796, 3.48392, 4.53616)
+billboard = 1
+texture = SubResource("ViewportTexture_f0u1e")
+
+[node name="Teleporter6" parent="Mini13" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.94149, 1.63404, 4.77864)
+linked_teleporter = NodePath("../../Mini9/Teleporter7")
+
+[node name="Teleporter7" parent="Mini13" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.729486, 1.63404, 4.77864)
+linked_teleporter = NodePath("../../Mini6/Teleporter6")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0352, 2.02461, 4.05733)
+use_collision = true
+size = Vector3(8, 5, 8)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mini13/CSGBox3D"]
+operation = 2
+size = Vector3(7, 5, 7)
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
@@ -59,25 +857,8 @@ use_collision = true
 mesh = SubResource("PlaneMesh_xfull")
 
 [node name="Player" parent="." instance=ExtResource("1_732vs")]
-transform = Transform3D(0.0621634, 0, 0.998066, 0, 1, 0, -0.998066, 0, 0.0621634, 5.03374, 1.05278, 2.93993)
-
-[node name="Door" type="CSGBox3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13749, 1.55843, 3.77733)
-use_collision = true
-size = Vector3(0.20166, 3.03113, 2.04575)
-
-[node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.137872, 1.35532, 3.77218)
-script = ExtResource("2_h0hnm")
-next_world = 1
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46056, 0.231476, 0.109955)
-shape = SubResource("BoxShape3D_t5k42")
-
-[node name="Computer" parent="." groups=["interaction"] instance=ExtResource("3_x4pok")]
-transform = Transform3D(0.728622, 0, -0.684915, 0, 1, 0, 0.684915, 0, 0.728622, 1.8458, 0.46551, 6.59596)
+transform = Transform3D(0.0621634, 0, 0.998066, 0, 1, 0, -0.998066, 0, 0.0621634, 39.508, 1.05278, 36.4699)
+current_world = "world2"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -86,16 +867,4 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_u8lj4")
 
-[node name="Teleporter" parent="." node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
-transform = Transform3D(-0.681194, 0, 0.732103, 0, 1, 0, -0.732103, 0, -0.681194, 6.20912, 1.48327, 6.07028)
-linked_teleporter = NodePath("../Teleporter2")
-
-[node name="Teleporter2" parent="." node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.81467, 1.56947, -23.4881)
-linked_teleporter = NodePath("../Teleporter")
-
-[node name="Teleporter3" parent="." node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("7_v87ig")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12.2669, 1.56947, -27.9604)
-linked_teleporter = NodePath("../Teleporter")
-
-[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="Mini1/Area3D" to="Mini1/Area3D" method="_on_body_entered"]

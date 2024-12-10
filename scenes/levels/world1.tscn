@@ -11091,7 +11091,6 @@ weight = 5
 [node name="InfoBook0" parent="." instance=ExtResource("17_38ttk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.82297, 0.137281, 0)
 current_world = "world1"
-book_number = 0
 
 [node name="InfoBook1" parent="." instance=ExtResource("17_38ttk")]
 transform = Transform3D(0.018133, -0.999836, 0, 0.999836, 0.018133, 0, 0, 0, 1, 3.90628, 2.76125, 4.70001)

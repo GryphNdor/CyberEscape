@@ -14,6 +14,12 @@ var world1_hints = [
 	"With good hashes you get out, exactly what you put in (yes even the same length!)",
 ]
 
+var world2_hints = [
+	"Make sure to check all the rooms!",
+	"Make sure that the username and password are exact matches",
+	"",
+]
+
 var world3_hints = [
 	"Who is that person on the poster? Looks like a pretty commanding guy.",
 	"That guy on the poster seems like he could be the type of guy to have his own secret code.",
@@ -33,6 +39,8 @@ func get_hint(room: String):
 			text = tutorial_hints[index]
 		"world1":
 			text = world1_hints[index]
+		"world2":
+			text = world2_hints[index]
 		"world3":
 			text = world3_hints[index]
 	index = (index + 1) % 3
